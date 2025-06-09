@@ -1,4 +1,5 @@
 import './App.css'
+import MainLayouts from './layouts/MainLayouts'
 
 function App() {
 
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
     <p>React Online</p>
+
     </>
   )
 }
