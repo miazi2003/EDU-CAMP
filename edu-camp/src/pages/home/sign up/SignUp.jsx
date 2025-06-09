@@ -2,12 +2,10 @@ import React, { useContext } from "react";
 import register from "../../../assets/lottie/register.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../../../Context/AuthContext";
+import toast  from 'react-hot-toast';
 const SignUp = () => {
 
-const {signUpUser , updateUser} = useContext(AuthContext)
-
-
-
+const {signUpUser , updateUser } = useContext(AuthContext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +16,23 @@ const {signUpUser , updateUser} = useContext(AuthContext)
     const photo = form.photo.value;
 
     console.log(name,email , password,photo)
+
+    //password validation
+    if(password.length < 6){
+      console.log("not met 6")
+      toast.error("Password Must Have 6 Character")
+      return ;
+    }
+    if(!/[A-Z]/.test(password)){
+      console.log("not met A")
+      toast.error("Password Must Have An Uppercase Letter")
+      return ;
+    }
+    if(!/[a-z]/.test(password)){
+      console.log("not met a")
+      toast.error("Password Must Have A Lowercase Letter")
+      return ;
+    }
 
 
     //create account 
@@ -65,11 +80,11 @@ const {signUpUser , updateUser} = useContext(AuthContext)
             <label className="label">Name</label>
           <input type="text" className="input border-green-800" placeholder="Name" name="name" />
           <label className="label">Email</label>
-          <input type="email" className="input border-green-800" placeholder="Email" name="email"/>
+          <input type="email" required className="input border-green-800" placeholder="Email" name="email"/>
           <label className="label">Photo Url</label>
           <input type="url" className="input border-green-800" placeholder="Photo URL" name="photo"/>
           <label className="label">Password</label>
-          <input type="password" className="input border-green-800" placeholder="Password" name="password"/>
+          <input type="password" required className="input border-green-800" placeholder="Password" name="password"/>
           <button className="btn bg-green-800 mt-4 text-white hover:bg-white hover:text-green-800 hover:border-green-800 ">Sign Up</button>
            <a
                   href="/signIn"

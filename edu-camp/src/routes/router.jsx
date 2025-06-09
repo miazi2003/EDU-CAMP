@@ -4,6 +4,7 @@ import { Children} from "react";
 import Home from "../pages/home/Home";
 import SignIn from "../pages/home/sign In/SignIn";
 import SignUp from "../pages/home/sign up/SignUp";
+import ErrorPage from "../pages/home/errorPage/ErrorPage";
 
 
 
@@ -14,6 +15,7 @@ export const router = createBrowserRouter([
 {
     path : '/' ,
     Component : MainLayouts,
+    errorElement : <ErrorPage></ErrorPage>,
     children :[
         {index : true , element : <Home></Home>},
         {path : '/signIn' , element : <SignIn></SignIn>},
