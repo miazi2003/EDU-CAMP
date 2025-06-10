@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import SignIn from "../pages/home/sign In/SignIn";
 import SignUp from "../pages/home/sign up/SignUp";
 import ErrorPage from "../pages/home/errorPage/ErrorPage";
+import CreateAssignment from "../pages/home/Create Assignment/CreateAssignment";
 
 
 
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
         {index : true , element : <Home></Home>},
         {path : '/signIn' , element : <SignIn></SignIn>},
         {path : '/signUp' , element : <SignUp/>},
+        {path : '/createAssignment' , element : <CreateAssignment></CreateAssignment>},
         
     ] 
 }

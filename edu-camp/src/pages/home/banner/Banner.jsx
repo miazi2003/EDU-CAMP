@@ -14,10 +14,10 @@ const Banner = () => {
           </motion.div>
         </div>
 
-        <motion.div animate={{y:[0,1,0] , transition : {duration : 2 , repeat : Infinity}}  } className="absolute right-122 bg-white p-2 shadow shadow-blue-400 rounded-2xl">
+        <motion.div animate={{y:[0,1,0] , transition : {duration : 2 , repeat : Infinity}}  } className="absolute right-122 bg-white p-2 shadow shadow-blue-400 rounded-2xl dark:text-black">
           <FaReact size={50} />
         </motion.div>
-        <motion.div animate={{x:[0,1,0] , transition : {duration : 2 , repeat : Infinity}}  } className="absolute right-8 bottom-48 bg-white p-2 shadow shadow-blue-400 rounded-2xl">
+        <motion.div animate={{x:[0,1,0] , transition : {duration : 2 , repeat : Infinity}}  } className="absolute right-8 bottom-48 bg-white p-2 shadow shadow-blue-400 rounded-2xl dark:text-black">
           <TbBrandFigma size={50} />
         </motion.div>
 
