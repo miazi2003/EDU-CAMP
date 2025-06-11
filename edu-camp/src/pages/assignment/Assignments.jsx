@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 
 import axios from "axios";
 import AssignmentCard from "./AssignmentCard";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Assignments = () => {
+
   const [assignments, setAssignments] = useState([]);
+
+const {user} = use(AuthContext)
+
+const email = user?.email
 
   useEffect(() => {
     axios
@@ -21,7 +27,7 @@ const Assignments = () => {
 
    const handleDelete = (id) => {
       axios
-        .delete(`http://localhost:3000/createAssignment/${id}`)
+        .post(`http://localhost:3000/deleteAssignment/${id}` ,{email} )
         .then((res) => {
           console.log(res.data);
           if(res.data.deletedCount > 0){

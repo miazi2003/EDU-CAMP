@@ -12,6 +12,7 @@ import { auth } from "../firebase/firebase.init";
 import { useEffect } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
 
+
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState([]);
   const [loading , setLoading] = useState(true)
@@ -71,6 +72,8 @@ const googleLogin = ()=>{
         console.log("authState", currentUser);
         setLoading(false)
         setUser(currentUser);
+
+    
       });
     };
 
