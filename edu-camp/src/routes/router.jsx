@@ -7,6 +7,8 @@ import SignUp from "../pages/home/sign up/SignUp";
 import ErrorPage from "../pages/home/errorPage/ErrorPage";
 import CreateAssignment from "../pages/home/Create Assignment/CreateAssignment";
 import Assignments from "../pages/assignment/Assignments";
+import ViewAssignment from "../pages/assignment/ViewAssignment";
+import SubmitAssignment from "../pages/assignment/SubmitAssignment";
 
 
 
@@ -23,7 +25,10 @@ export const router = createBrowserRouter([
         {path : '/signIn' , element : <SignIn></SignIn>},
         {path : '/signUp' , element : <SignUp/>},
         {path : '/createAssignment' , element : <CreateAssignment></CreateAssignment>},
-        {path : '/assignments' , element:<Assignments></Assignments>}
+        {path : '/assignments' , element:<Assignments></Assignments>},
+        {path : '/viewAssignments/:id' , element:<ViewAssignment></ViewAssignment>},
+        {path : '/submitAssignment/:id' , element:<SubmitAssignment></SubmitAssignment>},
+
         
     ] 
 }
