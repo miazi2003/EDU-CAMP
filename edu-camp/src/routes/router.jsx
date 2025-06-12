@@ -9,6 +9,7 @@ import CreateAssignment from "../pages/home/Create Assignment/CreateAssignment";
 import Assignments from "../pages/assignment/Assignments";
 import ViewAssignment from "../pages/assignment/ViewAssignment";
 import SubmitAssignment from "../pages/assignment/SubmitAssignment";
+import MySubmittedAssignment from "../pages/assignment/MySubmittedAssignment";
 
 
 
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
         {path : '/assignments' , element:<Assignments></Assignments>},
         {path : '/viewAssignments/:id' , element:<ViewAssignment></ViewAssignment>},
         {path : '/submitAssignment/:id' , element:<SubmitAssignment></SubmitAssignment>},
+        {path : '/attemptedAssignment' , element:<MySubmittedAssignment></MySubmittedAssignment>},
 
         
     ] 
