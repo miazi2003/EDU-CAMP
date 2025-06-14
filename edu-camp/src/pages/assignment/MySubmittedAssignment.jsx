@@ -4,9 +4,9 @@ import { AuthContext } from '../../Context/AuthContext';
 import { MdDelete } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { Link, useParams } from "react-router";
+import { Link } from "react-router";
 const MySubmittedAssignment = () => {
-    const [assignment , setAssignment] = useState([])
+
     
     const [submit , setSubmit] = useState([])
     const {user} = useContext(AuthContext)
@@ -117,9 +117,7 @@ const handleDelete = (id) => {
               <MdDelete />
             </button>
 
-            <button title="Edit" className="text-blue-800">
-              <CiEdit />
-            </button>
+          
           </div>
         </div>
       </div></>)

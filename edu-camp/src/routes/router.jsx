@@ -10,6 +10,8 @@ import Assignments from "../pages/assignment/Assignments";
 import ViewAssignment from "../pages/assignment/ViewAssignment";
 import SubmitAssignment from "../pages/assignment/SubmitAssignment";
 import MySubmittedAssignment from "../pages/assignment/MySubmittedAssignment";
+import UpdateAssignment from "../pages/assignment/UpdateAssignment";
+
 
 
 
@@ -30,6 +32,8 @@ export const router = createBrowserRouter([
         {path : '/viewAssignments/:id' , element:<ViewAssignment></ViewAssignment>},
         {path : '/submitAssignment/:id' , element:<SubmitAssignment></SubmitAssignment>},
         {path : '/attemptedAssignment' , element:<MySubmittedAssignment></MySubmittedAssignment>},
+        {path : '/updateAssignment/:id' , element:<UpdateAssignment></UpdateAssignment>},
+       
 
         
     ] 

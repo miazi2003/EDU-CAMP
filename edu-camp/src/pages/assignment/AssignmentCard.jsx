@@ -47,9 +47,10 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
               <MdDelete />
             </button>
 
-            <button title="Edit" className="text-blue-800">
-              <CiEdit />
-            </button>
+           <Link to={`/updateAssignment/${_id}`}>
+                      <button title="Edit" className="text-blue-800">
+                        <CiEdit />
+                      </button></Link>
             <Link to={`/viewAssignments/${_id}`}>
               <button
                 title="View Assignment Details"
