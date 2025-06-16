@@ -5,7 +5,7 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router";
 
 const AssignmentCard = ({ assignment, handleDelete }) => {
-  console.log(assignment);
+
 
   const { title, description, marks, difficulty, thumbnailImageURL, _id } =
     assignment;

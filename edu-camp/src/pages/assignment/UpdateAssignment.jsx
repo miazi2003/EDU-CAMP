@@ -18,7 +18,7 @@ const { id } = useParams();
 
   useEffect(() => {
     axiosSecure
-      .get(`http://localhost:3000/allAssignment/${id}`)
+      .get(`http://localhost:3000/updateAllAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
         setViewData(res.data);

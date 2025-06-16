@@ -102,7 +102,7 @@ const navigate = useNavigate()
                   id=""
                   className="border border-green-800 mt-2 w-max h-8"
                 >
-                  <option disabled value="Set A Difficulty">
+                  <option defaultValue="Set A Difficulty">
                     Set A Difficulty
                   </option>
                   <option value="Easy">Easy</option>
