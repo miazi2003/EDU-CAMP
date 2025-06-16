@@ -43,9 +43,12 @@ const SignUp = () => {
           .catch((err) => {
             console.log(err.message);
           });
+
+          toast.success('Successfully Signed Up')
       })
       .catch((err) => {
         console.log(err.message);
+        toast.error(err.message)
       });
   };
 

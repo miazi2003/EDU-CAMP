@@ -11,6 +11,7 @@ import {
 import { auth } from "../firebase/firebase.init";
 import { useEffect } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
 
 
 const AuthProvider = ({ children }) => {
@@ -72,7 +73,19 @@ const googleLogin = ()=>{
         console.log("authState", currentUser);
         setLoading(false)
         setUser(currentUser);
-
+         axios
+        .post(
+          "http://localhost:3000/jwt",
+         { email : currentUser.email ,
+          
+          },
+          {
+            withCredentials : true 
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+        });
     
       });
     };

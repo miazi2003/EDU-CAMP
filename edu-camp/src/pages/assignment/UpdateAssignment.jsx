@@ -3,13 +3,14 @@ import Lottie from "lottie-react";
 import formLottie from "../../assets/lottie/forms.json"
 
 import axios from "axios";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import toast from "react-hot-toast";
 
 const UpdateAssignment = () => {
 
 const [viewData , setViewData] = useState(null);
 
-
+const navigate = useNavigate()
 
 const { id } = useParams();
   console.log(id);
@@ -46,9 +47,12 @@ console.log(viewData)
       .put(`http://localhost:3000/updateAssignment/${id}` , updatedAssignment)
       .then((res) => {
         console.log("post assignment", res.data);
+        toast.success("Successfully Updated")
+        navigate('/assignments')
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err.message)
       });
   };
   return (

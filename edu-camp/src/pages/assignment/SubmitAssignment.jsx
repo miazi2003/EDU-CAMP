@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
+import toast from "react-hot-toast";
 
 const SubmitAssignment = () => {
     const [assignment , setAssignment] = useState([])
@@ -17,7 +18,7 @@ const SubmitAssignment = () => {
 
   const email = user?.email;
 
-
+const navigate = useNavigate()
 
  useEffect(() => {
     axios
@@ -60,10 +61,11 @@ const SubmitAssignment = () => {
       .post(`http://localhost:3000/submittedAssignment`, newSubmit)
       .then((res) => {
         console.log(res.data);
+        navigate('/pendingAssignment')
       })
       .catch((err) => {
         if (err.response?.status == 409) {
-          alert("already submitted");
+          toast.error('Already Submitted')
           
         } else {
           console.log(err.message);

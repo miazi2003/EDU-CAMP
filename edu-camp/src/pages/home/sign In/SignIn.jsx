@@ -3,6 +3,7 @@ import loginLottie from "../../../assets/lottie/login.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../../../Context/AuthContext";
 import { useLocation, useNavigate } from "react-router";
+import toast from "react-hot-toast";
 const SignIn = () => {
   const { signInUser, googleLogin } = useContext(AuthContext);
   const location = useLocation()
@@ -21,10 +22,12 @@ const SignIn = () => {
     signInUser(email, password)
       .then((res) => {
         console.log(res.user);
+        toast.success('Successfully Signed in')
         navigate( location.pathname || '/')
       })
       .catch((err) => {
         console.log(err.message);
+        toast.error(err.message)
       });
   };
 
@@ -32,9 +35,11 @@ const SignIn = () => {
     googleLogin()
       .then((res) => {
         console.log(res.user);
+        toast.success("Successfully Signed In")
       })
       .catch((err) => {
         console.log(err.message);
+        toast.error(err.message)
       });
   };
 

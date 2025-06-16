@@ -18,6 +18,12 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
         </figure>
         <div className="flex">
           <div className="card-body w-[90%] h-full flex flex-col">
+            <div className=" px-2 bg-green-100 w-max rounded">
+              <p className="flex gap-2  text-gray-500">
+                
+                {difficulty}{" "}
+              </p>
+            </div>
             <h2 className="fontSec flex  gap-2 text-lg font-bold">
                {title}
             </h2>
@@ -26,14 +32,9 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
             </p>
             <p className="flex gap-2 text-gray-500 ">
               {" "}
-              <span className="text-black">Marks :</span> {marks}
+              <span className="text-black">Marks :</span> {marks === 100 ? marks : 100}
             </p>
-            <div className="">
-              <p className="flex gap-2  text-gray-500">
-                <span className="text-black">Difficulty :</span>
-                {difficulty}{" "}
-              </p>
-            </div>
+            
           </div>
 
           <div className="flex flex-col items-center gap-3 justify-center h-full w-[10%] lg:pr-2  text-right">
