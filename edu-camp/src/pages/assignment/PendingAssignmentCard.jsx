@@ -14,6 +14,13 @@ const PendingAssignmentCard = ({ pending }) => {
         </figure>
         <div className="">
           <div className="card-body  h-full flex flex-col">
+
+            <div className=" px-2 bg-green-100 w-max rounded">
+              <p className="flex gap-2  text-gray-500">
+                
+                {pending.difficulty}{" "}
+              </p>
+            </div>
             <h2 className="fontSec flex  gap-2 text-lg font-bold">
               {pending.title}
             </h2>
@@ -23,12 +30,7 @@ const PendingAssignmentCard = ({ pending }) => {
               <span className="text-black">Marks :</span>{" "}
               {pending.marks === 100 ? pending.marks : 100}
             </p>
-            <div className="">
-              <p className="flex gap-2  text-gray-500">
-                <span className="text-black">Difficulty :</span>
-                {pending.difficulty}{" "}
-              </p>
-            </div>
+          
             <p>
               Status : <span className="text-red-400">{pending.status}</span>
             </p>
