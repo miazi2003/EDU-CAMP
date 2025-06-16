@@ -77,7 +77,7 @@ const googleLogin = ()=>{
         .post(
           "http://localhost:3000/jwt",
          { email : currentUser.email ,
-          
+
           },
           {
             withCredentials : true 
@@ -103,7 +103,7 @@ const googleLogin = ()=>{
     signOutUser
   };
 
-  return <AuthContext value={userInfo}>{children}</AuthContext>;
+return <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>;;
 };
 
 export default AuthProvider;

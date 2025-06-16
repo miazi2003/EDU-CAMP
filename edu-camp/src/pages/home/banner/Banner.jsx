@@ -6,7 +6,7 @@ import { motion } from "motion/react"
 
 const Banner = () => {
   return (
-    <div className="hero min-h-screen  ">
+    <div className="hero min-h-screen  dark:bg-black">
       <div className="hero-content flex-col lg:flex-row-reverse justify-around relative ">
         <div className="clip h-112 w-112 primary overflow-clip relative ">
           <motion.div animate={{scale:[1 , 1.01 , 1]  , transition : {duration : 3 , repeat : Infinity}}  } className="absolute bottom-12 left-14 top-22 ">
@@ -14,15 +14,15 @@ const Banner = () => {
           </motion.div>
         </div>
 
-        <motion.div animate={{y:[0,1,0] , transition : {duration : 2 , repeat : Infinity}}  } className="absolute right-122 bg-white p-2 shadow shadow-blue-400 rounded-2xl dark:text-black">
+        <motion.div animate={{y:[0,1,0] , transition : {duration : 2 , repeat : Infinity}}  } className="absolute right-122 bg-white p-2 shadow shadow-blue-400 rounded-2xl text">
           <FaReact size={50} />
         </motion.div>
-        <motion.div animate={{x:[0,1,0] , transition : {duration : 2 , repeat : Infinity}}  } className="absolute right-8 bottom-48 bg-white p-2 shadow shadow-blue-400 rounded-2xl dark:text-black">
+        <motion.div animate={{x:[0,1,0] , transition : {duration : 2 , repeat : Infinity}}  } className="absolute right-8 bottom-48 bg-white p-2 shadow shadow-blue-400 rounded-2xl text">
           <TbBrandFigma size={50} />
         </motion.div>
 
         <div className=" h-24 w-42 bannerBg shadow shadow-green-300 rounded-2xl absolute right-3 top-12 flex items-center text-center justify-center p-4 ">
-          <p className="text-sm text-white font-bold">
+          <p className="text-sm text-white font-bold ">
             Welcome To Our Study Website
           </p>
         </div>

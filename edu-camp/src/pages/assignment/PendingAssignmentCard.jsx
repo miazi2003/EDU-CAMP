@@ -27,7 +27,7 @@ const PendingAssignmentCard = ({ pending }) => {
 
             <p className="flex gap-2 text-gray-500 ">
               {" "}
-              <span className="text-black">Marks :</span>{" "}
+              <span className="text-black textWhite">Marks :</span>{" "}
               {pending.marks === 100 ? pending.marks : 100}
             </p>
           

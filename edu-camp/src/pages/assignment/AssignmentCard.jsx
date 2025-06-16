@@ -12,12 +12,12 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
 
   return (
     <div>
-      <div className="card bg-base-100 h-100  shadow-sm flex flex-wrap">
+      <div className="card bg-base-100 h-100  shadow-sm shadow-white flex flex-wrap BGround">
         <figure className="h-42 w-full">
           <img src={thumbnailImageURL} alt="Shoes" />
         </figure>
-        <div className="flex">
-          <div className="card-body w-[90%] h-full flex flex-col">
+        <div className="flex BGround">
+          <div className="card-body w-[90%] h-full flex flex-col ">
             <div className=" px-2 bg-green-100 w-max rounded">
               <p className="flex gap-2  text-gray-500">
                 
@@ -27,12 +27,14 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
             <h2 className="fontSec flex  gap-2 text-lg font-bold">
                {title}
             </h2>
-            <p className="text-gray-500 font text-xs flex gap-2 ">
+         <div  className="break-all w-full max-w-sm">
+             <p className="text-gray-500 font text-xs flex gap-2 ">
               {description}
             </p>
+         </div>
             <p className="flex gap-2 text-gray-500 ">
               {" "}
-              <span className="text-black">Marks :</span> {marks === 100 ? marks : 100}
+              <span className="text-black textWhite">Marks :</span> {marks === 100 ? marks : 100}
             </p>
             
           </div>

@@ -25,6 +25,12 @@ const navigate = useNavigate()
 
     console.log(newAssignment);
 
+
+    const {description } = assignment
+    if(description.length < 70 ){
+      return toast.error('short')
+    }
+
     //post data to the server
 
     axiosSecure
@@ -40,9 +46,9 @@ const navigate = useNavigate()
 
   return (
     <div>
-      <div className="flex ">
-        <div className="font px-12 p-4 h-full w-[50%] bg-white  mt-2 ml-8 rounded-2xl ">
-          <h1 className="text-3xl text-center text-gray-500 ">
+      <div className="flex py-2">
+        <div className="font px-12 p-4 h-full w-[50%] bg-white  mt-2 ml-8 rounded-2xl assignment ">
+          <h1 className="text-3xl text-center text-gray-500 textWhite">
             Assignment Form
           </h1>
           <form className="flex  p-4 gap-4" onSubmit={handleSubmit}>
@@ -123,7 +129,7 @@ const navigate = useNavigate()
         </div>
         <div className="lottie flex flex-col  items-center justify-center w-[50%]">
           <h1 className="text-5xl text-green-800 ">
-            EduCamp <span className="text-gray-500">Web</span>
+            EduCamp <span className="text-gray-500 textWhite">Web</span>
           </h1>
           <p className="text-lg text-gray-500 mt-2 font">
             Create Your Assignment Here

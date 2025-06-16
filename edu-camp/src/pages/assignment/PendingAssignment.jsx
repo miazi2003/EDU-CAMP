@@ -27,8 +27,8 @@ const PendingAssignment = () => {
 
 
   return (
-    <div >
-      <h1 className="text-4xl text-center mt-4 text-gray-700 ">
+    <div className="assignment" >
+      <h1 className="text-4xl text-center  text-gray-700 textWhite">
         Pending Assignments
       </h1>
       <p className="text-lg text-gray-500 mt-2 font text-center">

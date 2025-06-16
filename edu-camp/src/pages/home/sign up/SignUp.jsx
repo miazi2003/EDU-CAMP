@@ -56,10 +56,10 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className=" flex">
+    <div className=" flex py-2">
       <div className="w-1/2 flex flex-col items-center justify-center  pt-4 text-center">
         <h1 className="text-5xl text-green-800 ">
-          EduCamp <span className="text-gray-500">Web</span>
+          EduCamp <span className="text-gray-500 textWhite">Web</span>
         </h1>
         <p className="text-lg text-gray-500 mt-2 font">
           Sign Up Here To Start Your Learning Journey
@@ -73,7 +73,7 @@ const navigate = useNavigate()
       </div>
 
       <div className="w-1/2 flex items-center justify-center">
-        <div className="card bg-base-100 w-full max-w-sm  shrink-0 shadow-xl">
+        <div className="card bg-base-100 w-full max-w-sm  shrink-0 shadow-sm shadow-white">
           <div className="card-body">
             <h1 className="text-4xl text-center text-gray-500 py-2">
               Sign Up Here
@@ -83,7 +83,7 @@ const navigate = useNavigate()
                 <label className="label">Name</label>
                 <input
                   type="text"
-                  className="input border-green-800"
+                  className="input border-green-800 text"
                   placeholder="Name"
                   name="name"
                 />
@@ -91,14 +91,14 @@ const navigate = useNavigate()
                 <input
                   type="email"
                   required
-                  className="input border-green-800"
+                  className="input border-green-800 text"
                   placeholder="Email"
                   name="email"
                 />
                 <label className="label">Photo Url</label>
                 <input
                   type="url"
-                  className="input border-green-800"
+                  className="input border-green-800 text"
                   placeholder="Photo URL"
                   name="photo"
                 />
@@ -106,7 +106,7 @@ const navigate = useNavigate()
                 <input
                   type="password"
                   required
-                  className="input border-green-800"
+                  className="input border-green-800 text"
                   placeholder="Password"
                   name="password"
                 />

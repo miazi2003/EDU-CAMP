@@ -45,9 +45,9 @@ console.log(daysLeft , "days")
 
 
   return (
-    <div className="flex">
+    <div className="flex py-12">
       <div className="w-[50%]   mx-auto">
-        <div className="p-4 bg-white shadow-lg rounded-r-xl  ">
+        <div className="p-4 bg-white shadow-lg rounded-r-xl assignment">
           <img className="h-[400px] w-full cover" src={thumbnailImageURL} alt="" />
         </div>
         <div className="text-center py-8 text-3xl fontSec">{title}</div>

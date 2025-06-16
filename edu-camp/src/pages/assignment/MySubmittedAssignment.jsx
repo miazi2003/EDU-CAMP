@@ -29,8 +29,8 @@ const MySubmittedAssignment = () => {
     console.log(submit[0])
 
     return (
-        <div className='px-8'>
-             <h1 className="text-4xl text-center mt-4 text-gray-700 ">
+        <div className='assignmentSubmit px-8 py-12'>
+             <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite ">
           My Submitted Assignment
         </h1>
             <div className='grid grid-cols-4 gap-4 mt-2'>

@@ -4,7 +4,7 @@ import Navbar from '../pages/home/shared/Navbar';
 
 const MainLayouts = () => {
     return (
-        <div>
+        <div className='assignment'>
            <Navbar></Navbar>
             <Outlet></Outlet>
         </div>

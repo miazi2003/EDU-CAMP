@@ -60,8 +60,8 @@ const navigate = useNavigate()
   };
 
   return (
-    <div>
-      <h1 className="text-4xl text-center mt-4 text-gray-700 ">
+    <div className="assignment py-6">
+      <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite">
         Give Assignment Mark
       </h1>
 
@@ -95,7 +95,7 @@ const navigate = useNavigate()
                 <input
                   type="number"
                   required
-                  className="input border-green-800"
+                  className="input border-green-800 text"
                   placeholder="Marks 1-100"
                   name="resultMark"
                 />
@@ -103,7 +103,7 @@ const navigate = useNavigate()
                 <textarea
                   type="text"
                   required
-                  className="input pt-2 border-green-800"
+                  className="input pt-2 border-green-800 text"
                   placeholder="Feedback"
                   name="feedback"
                 />
@@ -112,7 +112,7 @@ const navigate = useNavigate()
                   className="btn bg-green-800 mt-4 text-white hover:bg-white hover:text-green-800 hover:border-green-800 "
                   type="submit"
                 >
-                  Login
+                  Give Your Marks
                 </button>
               </fieldset>
             </form>

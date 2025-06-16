@@ -45,10 +45,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className=" flex">
+    <div className=" flex py-2">
       <div className="w-1/2 flex flex-col items-center justify-center  pt-4 text-center">
         <h1 className="text-5xl text-green-800 ">
-          EduCamp <span className="text-gray-500">Web</span>
+          EduCamp <span className="text-gray-500 textWhite">Web</span>
         </h1>
         <p className="text-lg text-gray-500 mt-2 font">
           Login Here To Restart Your Learning Journey
@@ -62,7 +62,7 @@ const SignIn = () => {
       </div>
 
       <div className="w-1/2 flex items-center justify-center">
-        <div className="card bg-base-100 w-full max-w-sm  shrink-0 shadow-xl">
+        <div className="card bg-base-100 w-full max-w-sm  shrink-0 shadow-sm shadow-white">
           <div className="card-body">
             <form onSubmit={handleSubmit}>
               <fieldset className="fieldset">
@@ -72,7 +72,7 @@ const SignIn = () => {
                 <label className="label">Email</label>
                 <input
                   type="email"
-                  className="input border-green-700"
+                  className="input border-green-700 text"
                   placeholder="Email"
                   name="email"
                 />
@@ -80,7 +80,7 @@ const SignIn = () => {
                 <label className="label">Password</label>
                 <input
                   type="password"
-                  className="input border-green-700"
+                  className="input border-green-700 text"
                   placeholder="Password"
                   name="password"
                 />

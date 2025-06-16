@@ -32,3 +32,76 @@ background-color: #016630;
     color: #016630;
     
 }
+
+
+
+body {
+  background-color: white;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+body.dark {
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  background-color: white;
+}
+body.dark .navbar {
+  background-color: #1f1f1f;
+}
+
+.hero {
+  background-color: white;
+}
+body.dark .hero {
+  background-color: #1f1f1f;
+}
+
+.bGround{
+     background-color: white;
+}
+
+body.dark .bGround{
+      background-color: #1f1f1f;
+}
+
+body.dark .text{
+    color: black;
+}
+
+body.dark .textWhite{
+    color: white;
+}
+
+
+.card {
+  background-color: white;
+}
+body.dark .card {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+
+.assignment {
+  background-color: white;
+  color: black;
+}
+body.dark .assignment {
+  background-color: #1f1f1f;
+  color: white; 
+}
+
+
+
+.assignmentSubmit {
+  background-color: white;
+  color: black;
+}
+body.dark .assignmentSubmit {
+  background-color: #1f1f1f;
+  color: white; 
+}

@@ -85,20 +85,20 @@ const navigate = useNavigate()
 
 
   return (
-    <div>
-      <h1 className="text-3xl text-center mt-4 text-gray-700 ">
+    <div className="h-screen">
+      <h1 className="text-3xl text-center mt-4 text-gray-700 textWhite">
         Submit Assignment
       </h1>
 
-      <div className="bg-white w-1/2 mx-auto  mt-4 flex items-center justify-center">
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-8">
+      <div className="bg-white w-1/2 mx-auto  mt-4 flex items-center justify-center assignment">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-sm shadow-white py-8">
           <div className="card-body">
             <form onSubmit={handleSubmit}>
               <fieldset className="fieldset">
                 <label className="label">Google Doc Link</label>
                 <input
                   type="url"
-                  className="input"
+                  className="input text"
                   placeholder="Google Doc Link"
                   name="doc"
                 />
@@ -107,7 +107,7 @@ const navigate = useNavigate()
                   name="note"
                   id=""
                   placeholder="Write A Quick Note"
-                  className="border flex items-center justify-center pt-2 rounded-lg pl-2 border-gray-300"
+                  className="border text flex items-center justify-center pt-2 rounded-lg pl-2 border-gray-300"
                 />
 
                 <button
