@@ -1,14 +1,16 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import moment from 'moment';
+import UseAxiosSecure from "../../hooks/useAxiosSecure";
 const ViewAssignment = () => {
+  const axiosSecure = UseAxiosSecure();
   const [viewData, setViewData] = useState([]);
   const { id } = useParams();
   console.log(id);
 
   useEffect(() => {
-    axios
+    axiosSecure
       .get(`http://localhost:3000/viewAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
@@ -17,7 +19,7 @@ const ViewAssignment = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [id , axiosSecure]);
 
 
 

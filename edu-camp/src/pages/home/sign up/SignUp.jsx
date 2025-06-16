@@ -3,9 +3,10 @@ import register from "../../../assets/lottie/register.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../../../Context/AuthContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 const SignUp = () => {
   const { signUpUser, updateUser } = useContext(AuthContext);
-
+const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -45,6 +46,8 @@ const SignUp = () => {
           });
 
           toast.success('Successfully Signed Up')
+
+           navigate(location.state?.pathname || '/')
       })
       .catch((err) => {
         console.log(err.message);

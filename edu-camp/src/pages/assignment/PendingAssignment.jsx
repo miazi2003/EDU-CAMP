@@ -1,14 +1,17 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import PendingAssignmentCard from "./PendingAssignmentCard";
+import UseAxiosSecure from "../../hooks/useAxiosSecure";
 
 const PendingAssignment = () => {
+
+  const axiosSecure = UseAxiosSecure();
   const [pendingData, setPendingData] = useState([]);
 
   const status = "pending";
 
   useEffect(() => {
-    axios
+    axiosSecure
       .get(`http://localhost:3000/pendingAssignment?status=${status}`)
       .then((res) => {
         console.log(res.data);
@@ -17,7 +20,7 @@ const PendingAssignment = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [axiosSecure]);
 
 
   console.log(pendingData)

@@ -1,13 +1,11 @@
-import axios from 'axios';
+
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
-import { MdDelete } from "react-icons/md";
-import { CiEdit } from "react-icons/ci";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { Link } from "react-router";
+
+import UseAxiosSecure from '../../hooks/useAxiosSecure';
 const MySubmittedAssignment = () => {
 
-    
+    const axiosSecure = UseAxiosSecure();
     const [submit , setSubmit] = useState([])
     const {user} = useContext(AuthContext)
 
@@ -20,12 +18,12 @@ const MySubmittedAssignment = () => {
 
 
     useEffect(()=>{
-        axios.get(`http://localhost:3000/submittedAssignment?email=${email}` , { withCredentials : true }).then(res=>{
+      axiosSecure.get(`/submittedAssignment?email=${email}` ).then(res=>{
             console.log(res.data)
             setSubmit(res.data)
 
         }).catch(err=>{console.log(err.message)})
-    } , [email])
+    } , [email , axiosSecure])
 
 
     console.log(submit[0])

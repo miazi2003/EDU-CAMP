@@ -1,10 +1,12 @@
-import axios from "axios";
+
 import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import UseAxiosSecure from "../hooks/useAxiosSecure";
 
 const GiveMarks = () => {
+  const axiosSecure = UseAxiosSecure();
   const { id } = useParams();
   console.log(id);
 
@@ -13,7 +15,7 @@ const GiveMarks = () => {
   const email = user?.email;
 const navigate = useNavigate()
   useEffect(() => {
-    axios
+    axiosSecure
       .get(`http://localhost:3000/markAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
@@ -22,7 +24,7 @@ const navigate = useNavigate()
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [id , axiosSecure]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +38,7 @@ const navigate = useNavigate()
 
     //update marks and status
 
-    axios
+    axiosSecure
       .put(`http://localhost:3000/updateAssignmentSubmit/${id}`, {
         result,
         email,

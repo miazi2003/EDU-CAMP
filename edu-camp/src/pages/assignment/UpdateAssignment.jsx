@@ -2,12 +2,13 @@ import React, {  useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import formLottie from "../../assets/lottie/forms.json"
 
-import axios from "axios";
+
 import { useNavigate, useParams } from "react-router";
 import toast from "react-hot-toast";
+import UseAxiosSecure from "../../hooks/useAxiosSecure";
 
 const UpdateAssignment = () => {
-
+const axiosSecure = UseAxiosSecure();
 const [viewData , setViewData] = useState(null);
 
 const navigate = useNavigate()
@@ -16,7 +17,7 @@ const { id } = useParams();
   console.log(id);
 
   useEffect(() => {
-    axios
+    axiosSecure
       .get(`http://localhost:3000/allAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
@@ -25,7 +26,7 @@ const { id } = useParams();
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [id , axiosSecure]);
 
 if (!viewData) return <p>Loading...</p>;
 console.log(viewData)
@@ -43,7 +44,7 @@ console.log(viewData)
   
     //post data to the server
 
-    axios
+    axiosSecure
       .put(`http://localhost:3000/updateAssignment/${id}` , updatedAssignment)
       .then((res) => {
         console.log("post assignment", res.data);

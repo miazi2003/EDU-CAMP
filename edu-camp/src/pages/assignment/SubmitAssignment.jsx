@@ -1,10 +1,12 @@
-import axios from "axios";
+
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import toast from "react-hot-toast";
+import UseAxiosSecure from "../../hooks/useAxiosSecure";
 
 const SubmitAssignment = () => {
+  const axiosSecure = UseAxiosSecure();
     const [assignment , setAssignment] = useState([])
 
   const { id } = useParams();
@@ -21,7 +23,7 @@ const SubmitAssignment = () => {
 const navigate = useNavigate()
 
  useEffect(() => {
-    axios
+    axiosSecure
       .get(`http://localhost:3000/viewAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
@@ -30,7 +32,7 @@ const navigate = useNavigate()
       .catch((err) => {
         console.log(err);
       });
-  }, [id])
+  }, [id , axiosSecure])
 
 
 
@@ -57,7 +59,7 @@ const navigate = useNavigate()
     //post submit data
 
 
-    axios
+    axiosSecure
       .post(`http://localhost:3000/submittedAssignment`, newSubmit)
       .then((res) => {
         console.log(res.data);

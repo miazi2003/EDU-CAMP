@@ -3,9 +3,10 @@ import Swal from 'sweetalert2'
 import axios from "axios";
 import AssignmentCard from "./AssignmentCard";
 import { AuthContext } from "../../Context/AuthContext";
+import UseAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Assignments = () => {
-
+const axiosSecure = UseAxiosSecure();
   const [assignments, setAssignments] = useState([]);
 
 const {user} = use(AuthContext)
@@ -13,8 +14,8 @@ const {user} = use(AuthContext)
 const email = user?.email
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/createAssignment")
+    axiosSecure
+      .get("/createAssignment")
       .then((res) => {
         console.log("create assignment page", res.data);
         setAssignments(res.data);
@@ -22,7 +23,7 @@ const email = user?.email
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [axiosSecure]);
 
 
    const handleDelete = (id) => {

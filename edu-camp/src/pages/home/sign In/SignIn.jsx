@@ -23,7 +23,7 @@ const SignIn = () => {
       .then((res) => {
         console.log(res.user);
         toast.success('Successfully Signed in')
-        navigate( location.pathname || '/')
+         navigate(location.state?.pathname || '/')
       })
       .catch((err) => {
         console.log(err.message);
@@ -36,6 +36,7 @@ const SignIn = () => {
       .then((res) => {
         console.log(res.user);
         toast.success("Successfully Signed In")
+           navigate(location.state?.pathname || '/')
       })
       .catch((err) => {
         console.log(err.message);

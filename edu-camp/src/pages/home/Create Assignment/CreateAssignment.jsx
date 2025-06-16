@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import formLottie from "../../../assets/lottie/forms.json";
 import { AuthContext } from "../../../Context/AuthContext";
-import axios from "axios";
+
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import UseAxiosSecure from "../../../hooks/useAxiosSecure";
 const CreateAssignment = () => {
+  const axiosSecure = UseAxiosSecure();
   const { user } = useContext(AuthContext);
 const navigate = useNavigate()
   const handleSubmit = (e) => {
@@ -25,7 +27,7 @@ const navigate = useNavigate()
 
     //post data to the server
 
-    axios
+    axiosSecure
       .post("http://localhost:3000/createAssignment ", newAssignment)
       .then((res) => {
         console.log("post assignment", res.data);
