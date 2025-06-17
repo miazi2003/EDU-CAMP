@@ -68,30 +68,27 @@ const googleLogin = ()=>{
 
 //authState
   useEffect(() => {
-    const unSubscribe = () => {
-      onAuthStateChanged(auth, (currentUser) => {
-        console.log("authState", currentUser);
-        setLoading(false)
-        setUser(currentUser);
-         axios
-        .post(
-          "http://localhost:3000/jwt",
-         { email : currentUser.email ,
+  const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+    console.log("authState", currentUser);
+    setLoading(false);
+    setUser(currentUser);
 
-          },
-          {
-            withCredentials : true 
-          }
+    if (currentUser?.email) {
+      axios
+        .post(
+          "https://a-11-server-five.vercel.app/jwt",
+          { email: currentUser.email },
+          { withCredentials: true }
         )
         .then((res) => {
-          console.log(res.data);
-        });
-    
-      });
-    };
+          console.log("JWT set:", res.data);
+        })
+        .catch((err) => console.error("JWT error", err));
+    }
+  });
 
-    return unSubscribe();
-  }, []);
+  return () => unSubscribe(); 
+}, []);
 
   const userInfo = {
     user,

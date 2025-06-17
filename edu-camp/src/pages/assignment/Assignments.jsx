@@ -38,7 +38,7 @@ const Assignments = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .post(`http://localhost:3000/deleteAssignment/${id}`, { email })
+          .post(`https://a-11-server-five.vercel.app/deleteAssignment/${id}`, { email })
           .then((res) => {
             if (res.data.deletedCount) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -73,7 +73,7 @@ const Assignments = () => {
   const handleReset = (e) => {
     e?.preventDefault();
     setSearch("");
-    axios.get("http://localhost:3000/searchAssignment").then((res) => {
+    axios.get("https://a-11-server-five.vercel.app/searchAssignment").then((res) => {
       setAssignments(res.data);
     });
   };
@@ -125,8 +125,8 @@ const Assignments = () => {
   }
 
   return (
-    <div className="assignment">
-      <div className="flex justify-around items-center BGround">
+    <div className="assignment w-full ">
+      <div className="flex flex-col justify-around items-center BGround md:px-2 px-6">
         <div></div>
         <div>
           <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite">
@@ -137,7 +137,7 @@ const Assignments = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2 justify-center">
+        <div className="flex flex-col items-center gap-2 justify-center">
           <form
             className="relative"
             onSubmit={(e) => {
@@ -148,7 +148,7 @@ const Assignments = () => {
             <input
               type="text"
               placeholder="Search"
-              className="w-20 h-10 pl-4 md:w-auto border-2 rounded-2xl border-green-800"
+              className="lg:w-20 h-10 pl-4 md:w-auto w-42   border-2 rounded-2xl border-green-800"
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
@@ -185,7 +185,7 @@ const Assignments = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-8 p-8">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-8 p-8 min-h-screen">
         {assignments.map((assignment) => (
           <AssignmentCard
             key={assignment._id}

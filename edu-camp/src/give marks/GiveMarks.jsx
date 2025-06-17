@@ -16,7 +16,7 @@ const GiveMarks = () => {
 const navigate = useNavigate()
   useEffect(() => {
     axiosSecure
-      .get(`http://localhost:3000/markAssignment/${id}`)
+      .get(`https://a-11-server-five.vercel.app/markAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
         setData(res.data);
@@ -39,7 +39,7 @@ const navigate = useNavigate()
     //update marks and status
 
     axiosSecure
-      .put(`http://localhost:3000/updateAssignmentSubmit/${id}`, {
+      .put(`https://a-11-server-five.vercel.app/updateAssignmentSubmit/${id}`, {
         result,
         email,
       })
@@ -60,12 +60,12 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className="assignment py-6">
-      <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite">
+    <div className="assignment min-h-screen">
+      <h1 className="text-4xl text-center md:mt-4 text-gray-700 textWhite">
         Give Assignment Mark
       </h1>
 
-      <div className="w-full flex items-center justify-center mt-2">
+      <div className="lg:w-full  w-[350px] mx-auto flex items-center justify-center mt-2">
         <div className="card  w-full  shadow-2xl max-w-sm shrink-0  mt-4">
           <div className="card-body ">
             <p className="text-lg">
@@ -95,7 +95,7 @@ const navigate = useNavigate()
                 <input
                   type="number"
                   required
-                  className="input border-green-800 text"
+                  className="input border-green-800 text "
                   placeholder="Marks 1-100"
                   name="resultMark"
                 />

@@ -34,7 +34,7 @@ const navigate = useNavigate()
     //post data to the server
 
     axiosSecure
-      .post("http://localhost:3000/createAssignment ", newAssignment)
+      .post("https://a-11-server-five.vercel.app/createAssignment ", newAssignment)
       .then((res) => {
         console.log("post assignment", res.data);
         toast.success("Assignment Created Successfully")
@@ -46,12 +46,12 @@ const navigate = useNavigate()
 
   return (
     <div>
-      <div className="flex py-2">
-        <div className="font px-12 p-4 h-full w-[50%] bg-white  mt-2 ml-8 rounded-2xl assignment ">
-          <h1 className="text-3xl text-center text-gray-500 textWhite">
+      <div className="lg:flex min-h-screen">
+        <div className="font lg:px-12 p-4 h-full md:w-[50%] bg-white  mt-2 lg:ml-8 rounded-2xl assignment ">
+          <h1 className="text-3xl text-center text-gray-500 textWhite md:mb-0 mb-6">
             Assignment Form
           </h1>
-          <form className="flex  p-4 gap-4" onSubmit={handleSubmit}>
+          <form className="flex  lg:p-4 gap-4" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-14 w-max ">
               <div className="flex gap-2">
                 <label className="text-gray-500">Title :</label>
@@ -102,7 +102,7 @@ const navigate = useNavigate()
                 name="dueDate"
                 className="border p-2 border-green-800 rounded-xl"
               />{" "}
-              <div className="flex justify-between items-center">
+              <div className="md:flex  flex-col md:justify-between items-center">
                 <select
                   name="difficulty"
                   id=""
@@ -115,7 +115,7 @@ const navigate = useNavigate()
                   <option value="Normal">Normal</option>
                   <option value="Hard">Hard</option>
                 </select>
-                <div className="w-full flex items-center justify-center">
+                <div className="w-full flex items-center justify-center text-center md:mt-0 mt-4">
                   <button
                     type="submit"
                     className="btn h-10 bg-green-800 hover:bg-white hover:text-green-800 hover:border-green-800  text-white duration-300"
@@ -127,7 +127,7 @@ const navigate = useNavigate()
             </div>
           </form>
         </div>
-        <div className="lottie flex flex-col  items-center justify-center w-[50%]">
+        <div className="lottie lg:flex  hidden flex-col  items-center justify-center w-[50%]">
           <h1 className="text-5xl text-green-800 ">
             EduCamp <span className="text-gray-500 textWhite">Web</span>
           </h1>

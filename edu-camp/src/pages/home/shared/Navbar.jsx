@@ -46,7 +46,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-base-100  px-8 font">
+    <div className="navbar bg-base-100  lg:px-8 font ">
 
 
 
@@ -56,11 +56,11 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow assignment">
         {linksTwo}
       </ul>
     </div>
-      <div className="rounded-full flex-1">
+      <div className="rounded-full flex-1 hidden md:flex">
         <img
           className="h-16 w-24 "
           src="https://i.ibb.co/Mkgps8nZ/Chat-GPT-Image-Jun-7-2025-01-01-57-AM.png"
@@ -68,7 +68,7 @@ const Navbar = () => {
         />
       </div>
 
-      <div className="flex-1">{links}</div>
+      <div className="flex-1 lg:flex hidden">{links}</div>
 
      {
       user ?  

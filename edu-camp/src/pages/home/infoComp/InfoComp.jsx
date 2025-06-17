@@ -6,8 +6,9 @@ import { GiConfirmed } from "react-icons/gi";
 
 const InfoComp = () => {
   return (
-    <div className="bGround text">
-      <div className="grid grid-cols-4 w-[90%] mx-auto gap-16 py-2 pb-4">
+    <div className="bGround text py-8">
+      <h1 className="textWhite text-3xl text-center mt-4 md:text-4xl">Our Success</h1>
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 w-[90%] mx-auto lg:gap-16 md:gap-8 gap-4 py-2 pb-4">
         <div className="h-24 flex justify-between  rounded-2xl px-2  bg-yellow-100">
           <div className="flex-1 w-1/2 h-full flex items-center justify-center">
             <FaTv size={40} />

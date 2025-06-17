@@ -11,7 +11,7 @@ const ViewAssignment = () => {
 
   useEffect(() => {
     axiosSecure
-      .get(`http://localhost:3000/viewAssignment/${id}`)
+      .get(`https://a-11-server-five.vercel.app/viewAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
         setViewData(res.data);
@@ -45,15 +45,15 @@ console.log(daysLeft , "days")
 
 
   return (
-    <div className="flex py-12">
-      <div className="w-[50%]   mx-auto">
+    <div className="md:flex flex-col min-h-screen">
+      <div className="md:w-[50%]   mx-auto">
         <div className="p-4 bg-white shadow-lg rounded-r-xl assignment">
           <img className="h-[400px] w-full cover" src={thumbnailImageURL} alt="" />
         </div>
-        <div className="text-center py-8 text-3xl fontSec">{title}</div>
+        <div className="text-center py-8 text-3xl fontSec md:flex hidden">{title}</div>
       </div>
 
-      <div className="w-[50%] pl-12 py-4 ">
+      <div className="md:w-[50%] md:pl-12 md:px-0 px-6 py-4 ">
 
             <div className="font flex flex-col gap-4 lg:pr-28">
                 <h1 className="text-4xl">{title }</h1>

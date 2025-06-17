@@ -18,7 +18,7 @@ const { id } = useParams();
 
   useEffect(() => {
     axiosSecure
-      .get(`http://localhost:3000/updateAllAssignment/${id}`)
+      .get(`https://a-11-server-five.vercel.app/updateAllAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
         setViewData(res.data);
@@ -45,7 +45,7 @@ console.log(viewData)
     //post data to the server
 
     axiosSecure
-      .put(`http://localhost:3000/updateAssignment/${id}` , updatedAssignment)
+      .put(`https://a-11-server-five.vercel.app/updateAssignment/${id}` , updatedAssignment)
       .then((res) => {
         console.log("post assignment", res.data);
         toast.success("Successfully Updated")

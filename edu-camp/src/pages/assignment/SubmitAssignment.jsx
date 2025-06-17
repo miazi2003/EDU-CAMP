@@ -24,7 +24,7 @@ const navigate = useNavigate()
 
  useEffect(() => {
     axiosSecure
-      .get(`http://localhost:3000/viewAssignment/${id}`)
+      .get(`https://a-11-server-five.vercel.app/viewAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
         setAssignment(res.data);
@@ -60,7 +60,7 @@ const navigate = useNavigate()
 
 
     axiosSecure
-      .post(`http://localhost:3000/submittedAssignment`, newSubmit)
+      .post(`https://a-11-server-five.vercel.app/submittedAssignment`, newSubmit , {withCredentials : true})
       .then((res) => {
         console.log(res.data);
         navigate('/pendingAssignment')
@@ -90,7 +90,7 @@ const navigate = useNavigate()
         Submit Assignment
       </h1>
 
-      <div className="bg-white w-1/2 mx-auto  mt-4 flex items-center justify-center assignment">
+      <div className="bg-white md:w-1/2 mx-auto px-2  mt-4 flex items-center justify-center assignment">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-sm shadow-white py-8">
           <div className="card-body">
             <form onSubmit={handleSubmit}>
@@ -107,7 +107,7 @@ const navigate = useNavigate()
                   name="note"
                   id=""
                   placeholder="Write A Quick Note"
-                  className="border text flex items-center justify-center pt-2 rounded-lg pl-2 border-gray-300"
+                  className="border  text flex items-center justify-center pt-2 rounded-lg pl-2 border-gray-300 BGround textWhite"
                 />
 
                 <button

@@ -5,7 +5,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import UseAxiosSecure from '../../hooks/useAxiosSecure';
 const MySubmittedAssignment = () => {
 
-    const axiosSecure = UseAxiosSecure();
+const axiosSecure = UseAxiosSecure();
     const [submit , setSubmit] = useState([])
     const {user} = useContext(AuthContext)
 
@@ -18,7 +18,7 @@ const MySubmittedAssignment = () => {
 
 
     useEffect(()=>{
-      axiosSecure.get(`/submittedAssignment?email=${email}` ).then(res=>{
+      axiosSecure.get(`/submittedAssignment?email=${email}` , {withCredentials : true} ).then(res=>{
             console.log(res.data)
             setSubmit(res.data)
 
@@ -29,13 +29,13 @@ const MySubmittedAssignment = () => {
     console.log(submit[0])
 
     return (
-        <div className='assignmentSubmit px-8 py-12'>
+        <div className='assignmentSubmit min-h-screen'>
              <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite ">
           My Submitted Assignment
         </h1>
-            <div className='grid grid-cols-4 gap-4 mt-2'>
+            <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-8 mt-2 px-8'>
                 {
-        submit.map(sub=><><div className="card bg-base-100   shadow-sm flex flex-wrap">
+        submit.map(sub=><><div className="card bg-base-100 md:h-100  shadow-sm shadow-white flex flex-wrap BGround">
         <figure className="h-42 w-full">
           <img src={sub.thumbnailImageURL} alt="Shoes" />
         </figure>

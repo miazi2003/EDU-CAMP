@@ -12,7 +12,7 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
 
   return (
     <div>
-      <div className="card bg-base-100 h-100  shadow-sm shadow-white flex flex-wrap BGround">
+      <div className="card bg-base-100 md:h-100  shadow-sm shadow-white flex flex-wrap BGround">
         <figure className="h-42 w-full">
           <img src={thumbnailImageURL} alt="Shoes" />
         </figure>
@@ -39,7 +39,7 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
             
           </div>
 
-          <div className="flex flex-col items-center gap-3 justify-center h-full w-[10%] lg:pr-2  text-right">
+          <div className="flex flex-col items-center gap-3 justify-center h-full w-[10%] lg:pr-2 lg:mt-0 mt-8  text-right">
             <button
               title="Delete"
               className="text-red-600"

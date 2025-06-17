@@ -1,44 +1,16 @@
 import axios from 'axios';
-import React from 'react';
 
+const axiosInstance = axios.create({
+  baseURL: 'https://a-11-server-five.vercel.app',
+  withCredentials: true,
+});
 
- const axiosInstance = axios.create({
-    baseURL : 'http://localhost:3000'
+// Add interceptors ONCE
+axiosInstance.interceptors.request.use(config => {
+  config.withCredentials = true;
+  return config;
+});
 
- })
+const useAxiosSecure = () => axiosInstance;
 
-const UseAxiosSecure = () => {
-
-
-    
-
-
-
-
-    axiosInstance.interceptors.request.use(config=>{
-
-         config.withCredentials = true ;
-        
-        return config ;
-    })
-
-    return axiosInstance ;
-};
-
-export default UseAxiosSecure;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default useAxiosSecure;

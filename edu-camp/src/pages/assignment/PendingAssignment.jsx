@@ -12,7 +12,7 @@ const PendingAssignment = () => {
 
   useEffect(() => {
     axiosSecure
-      .get(`http://localhost:3000/pendingAssignment?status=${status}`)
+      .get(`https://a-11-server-five.vercel.app/pendingAssignment?status=${status}`)
       .then((res) => {
         console.log(res.data);
         setPendingData(res.data);
@@ -27,15 +27,17 @@ const PendingAssignment = () => {
 
 
   return (
-    <div className="assignment" >
-      <h1 className="text-4xl text-center  text-gray-700 textWhite">
+    <div className="assignment " >
+    <div className="px-2 ">
+        <h1 className="md:text-4xl text-3xl text-center  text-gray-700 textWhite pt-4">
         Pending Assignments
       </h1>
       <p className="text-lg text-gray-500 mt-2 font text-center">
         See All Pending Assignment Here , And Mark It As You Wish
       </p>
+    </div>
 
-      <div className="grid grid-cols-4 gap-4 mt-4 px-4">
+      <div className="grid lg:grid-cols-4 gap-4 mt-4 px-4">
         {pendingData.map(pending=><PendingAssignmentCard key={pending._id} pending={pending}></PendingAssignmentCard>)}
       </div>
     </div>
