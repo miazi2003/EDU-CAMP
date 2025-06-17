@@ -36,7 +36,7 @@ const navigate = useNavigate()
     //post data to the server
 
     axiosSecure
-      .post("https://a-11-server-five.vercel.app/createAssignment ", newAssignment)
+      .post("/createAssignment ", newAssignment)
       .then((res) => {
         console.log("post assignment", res.data);
         toast.success("Assignment Created Successfully")

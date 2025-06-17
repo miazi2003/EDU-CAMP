@@ -45,7 +45,7 @@ console.log(viewData)
     //post data to the server
 
     axiosSecure
-      .put(`https://a-11-server-five.vercel.app/updateAssignment/${id}` , updatedAssignment)
+      .put(`/updateAssignment/${id}` , updatedAssignment)
       .then((res) => {
         console.log("post assignment", res.data);
         toast.success("Successfully Updated")

@@ -37,8 +37,8 @@ const Assignments = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .post(`https://a-11-server-five.vercel.app/deleteAssignment/${id}`, { email })
+        axiosSecure
+          .post(`/deleteAssignment/${id}`, { email })
           .then((res) => {
             if (res.data.deletedCount) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");

@@ -60,7 +60,7 @@ const navigate = useNavigate()
 
 
     axiosSecure
-      .post(`https://a-11-server-five.vercel.app/submittedAssignment`, newSubmit , {withCredentials : true})
+      .post(`/submittedAssignment`, newSubmit , {withCredentials : true})
       .then((res) => {
         console.log(res.data);
         navigate('/pendingAssignment')

@@ -12,7 +12,7 @@ const PendingAssignment = () => {
 
   useEffect(() => {
     axiosSecure
-      .get(`https://a-11-server-five.vercel.app/pendingAssignment?status=${status}`)
+      .get(`/pendingAssignment?status=${status}`)
       .then((res) => {
         console.log(res.data);
         setPendingData(res.data);

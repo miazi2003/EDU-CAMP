@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://a-11-server-five.vercel.app',
+  baseURL: import.meta.env.VITE_DOMAIN ,
   withCredentials: true,
 });
 

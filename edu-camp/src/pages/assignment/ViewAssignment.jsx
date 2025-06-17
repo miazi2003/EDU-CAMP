@@ -11,7 +11,7 @@ const ViewAssignment = () => {
 
   useEffect(() => {
     axiosSecure
-      .get(`https://a-11-server-five.vercel.app/viewAssignment/${id}`)
+      .get(`/viewAssignment/${id}`)
       .then((res) => {
         console.log(res.data);
         setViewData(res.data);
