@@ -126,7 +126,7 @@ const Assignments = () => {
 
   return (
     <div className="assignment w-full ">
-      <div className="flex flex-col justify-around items-center BGround md:px-2 px-6">
+      <div className="lg:flex lg:flex-row flex-col justify-around items-center BGround md:px-2 px-6">
         <div></div>
         <div>
           <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite">
@@ -148,7 +148,7 @@ const Assignments = () => {
             <input
               type="text"
               placeholder="Search"
-              className="lg:w-20 h-10 pl-4 md:w-auto w-42   border-2 rounded-2xl border-green-800"
+              className="lg:w-40 h-10 pl-4 md:w-auto w-42   border-2 rounded-2xl border-green-800"
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
@@ -170,7 +170,7 @@ const Assignments = () => {
 
           <div className="w-full text-center mt-4">
             <select
-              className="border border-gray-300 p-1 text-gray-500 textWhite"
+              className="border border-gray-300 p-1 text-gray-500 assignment textWhite"
               onChange={(e) => {
                 setSearch(e.target.value);
                 handleSearch(e.target.value);
