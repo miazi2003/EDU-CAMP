@@ -48,9 +48,9 @@ const navigate = useNavigate()
 
   return (
     <div>
-      <div className="lg:flex min-h-screen">
+      <div className="md:flex md:items-center  min-h-screen">
         <div className="font lg:px-12 p-4 h-full md:w-[50%] bg-white  mt-2 lg:ml-8 rounded-2xl assignment ">
-          <h1 className="text-3xl text-center text-gray-500 textWhite md:mb-0 mb-6">
+          <h1 className="text-3xl text-center text-gray-500 textWhite md:mb-4 mb-6">
             Assignment Form
           </h1>
           <form className="flex  lg:p-4 gap-4" onSubmit={handleSubmit}>
@@ -111,7 +111,7 @@ const navigate = useNavigate()
                 <select
                   name="difficulty"
                   id=""
-                  className="border border-green-800 mt-2 w-max h-8"
+                  className="border border-green-800 mt-2 w-max h-8 mr-4"
                 >
                   <option defaultValue="Set A Difficulty">
                     Set A Difficulty
@@ -132,7 +132,7 @@ const navigate = useNavigate()
             </div>
           </form>
         </div>
-        <div className="lottie lg:flex  hidden flex-col  items-center justify-center w-[50%]">
+        <div className="lottie md:flex   hidden flex-col  items-center justify-center w-[50%]">
           <h1 className="text-5xl text-green-800 ">
             EduCamp <span className="text-gray-500 textWhite">Web</span>
           </h1>

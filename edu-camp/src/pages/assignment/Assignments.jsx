@@ -188,7 +188,7 @@ const Assignments = () => {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-8 p-8 min-h-screen">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 p-8 min-h-screen">
         {assignments.map((assignment) => (
           <AssignmentCard
             key={assignment._id}

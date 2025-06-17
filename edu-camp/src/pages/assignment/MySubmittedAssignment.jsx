@@ -33,9 +33,9 @@ const axiosSecure = UseAxiosSecure();
              <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite ">
           My Submitted Assignment
         </h1>
-            <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-8 mt-2 px-8'>
+            <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-2 mt-2 px-8'>
                 {
-        submit.map(sub=><><div className="card bg-base-100 md:h-100  shadow-sm shadow-white flex flex-wrap BGround">
+        submit.map(sub=><><div className="card bg-base-100 md:h-112  shadow-sm shadow-white flex flex-wrap BGround">
         <figure className="h-42 w-full">
           <img src={sub.thumbnailImageURL} alt="Shoes" />
         </figure>

@@ -45,7 +45,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className=" lg:flex lg:flex-row flex-col-revers min-h-screen">
+    <div className=" md:flex md:flex-row flex-col-revers min-h-screen">
       <div className="md:w-1/2 md:flex flex-col hidden  items-center justify-center  pt-4 text-center">
         <h1 className="text-5xl text-green-800 ">
           EduCamp <span className="text-gray-500 textWhite">Web</span>

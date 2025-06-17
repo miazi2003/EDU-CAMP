@@ -27,7 +27,7 @@ const PendingAssignment = () => {
 
 
   return (
-    <div className="assignment " >
+    <div className="assignment min-h-screen" >
     <div className="px-2 ">
         <h1 className="md:text-4xl text-3xl text-center  text-gray-700 textWhite pt-4">
         Pending Assignments
@@ -37,7 +37,7 @@ const PendingAssignment = () => {
       </p>
     </div>
 
-      <div className="grid lg:grid-cols-4 gap-4 mt-4 px-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-4 mt-4 px-4">
         {pendingData.map(pending=><PendingAssignmentCard key={pending._id} pending={pending}></PendingAssignmentCard>)}
       </div>
     </div>
