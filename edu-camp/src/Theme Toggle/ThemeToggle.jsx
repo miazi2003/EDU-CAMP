@@ -28,7 +28,7 @@ const ToggleTheme = () => {
     <div>
     
 
-    <input type="checkbox" defaultChecked checked={themes === 'dark'} className="toggle" onChange={themeToggle}  />
+    <input type="checkbox" checked={themes === 'dark'} className="toggle" onChange={themeToggle}  />
 
     </div>
     );
