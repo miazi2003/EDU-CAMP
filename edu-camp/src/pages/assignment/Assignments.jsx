@@ -10,7 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 const Assignments = () => {
   const [search, setSearch] = useState("");
   const axiosSecure = UseAxiosSecure();
-  const [assignments, setAssignments] = useState([]);
+  const [assignments, setAssignments] = useState([0]);
 
   const { user } = useContext(AuthContext); // ✅ Fixed here
   const email = user?.email;
@@ -81,7 +81,7 @@ const Assignments = () => {
   if (assignments.length === 0) {
     return (
       <>
-        <div className="flex justify-around items-center">
+        <div className="flex flex-col items-center gap-4 min-h-screen px-2">
           <div></div>
           <div>
             <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite">
@@ -91,7 +91,8 @@ const Assignments = () => {
               Choose Your Assignment And Grow Your Career Now
             </p>
           </div>
-          <form
+          <div className="max-w-max ">
+            <form
             className="relative"
             onSubmit={(e) => {
               e.preventDefault();
@@ -101,7 +102,7 @@ const Assignments = () => {
             <input
               type="text"
               placeholder="Search"
-              className="w-20 h-10 pl-4 md:w-auto border-2 rounded-2xl border-green-800"
+              className="lg:w-20 w-42 h-10 pl-4 md:w-auto border-2 rounded-2xl border-green-800"
               onChange={(e) => setSearch(e.target.value)}
             />
             <button
@@ -118,8 +119,10 @@ const Assignments = () => {
               <RxCross2 />
             </button>
           </form>
+          </div>
+          <p className="text-center text-4xl mt-24">No Data Found</p>
         </div>
-        <p className="text-center text-4xl mt-24">No Data Found</p>
+        
       </>
     );
   }
