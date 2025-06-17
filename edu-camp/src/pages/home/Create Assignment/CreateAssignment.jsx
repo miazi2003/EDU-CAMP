@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Lottie from "lottie-react";
 import formLottie from "../../../assets/lottie/forms.json";
 import { AuthContext } from "../../../Context/AuthContext";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import UseAxiosSecure from "../../../hooks/useAxiosSecure";
 const CreateAssignment = () => {
   const axiosSecure = UseAxiosSecure();
   const { user } = useContext(AuthContext);
+  const [dueDate, setDueDate] = useState(null);
 const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,12 +99,15 @@ const navigate = useNavigate()
                 name="description"
                 className="border p-2 border-green-800 rounded-xl"
               />{" "}
-              <input
-                type="date"
-                name="dueDate"
-                className="border p-2 border-green-800 rounded-xl"
-              />{" "}
-              <div className="md:flex  flex-col md:justify-between items-center">
+                  
+      <DatePicker
+        selected={dueDate}
+        onChange={(date) => setDueDate(date)}
+        dateFormat="yyyy-MM-dd"
+        placeholderText="Select a due date"
+        className="border p-2 border-green-800 rounded-xl z-40"
+      />
+              <div className=" flex-col  md:flex md:flex-row md:justify-between items-center">
                 <select
                   name="difficulty"
                   id=""
