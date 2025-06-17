@@ -45,8 +45,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className=" flex py-2">
-      <div className="w-1/2 flex flex-col items-center justify-center  pt-4 text-center">
+    <div className=" lg:flex lg:flex-row flex-col-revers min-h-screen">
+      <div className="md:w-1/2 md:flex flex-col hidden  items-center justify-center  pt-4 text-center">
         <h1 className="text-5xl text-green-800 ">
           EduCamp <span className="text-gray-500 textWhite">Web</span>
         </h1>
@@ -61,7 +61,7 @@ const SignIn = () => {
         ></Lottie>
       </div>
 
-      <div className="w-1/2 flex items-center justify-center">
+      <div className="md:w-1/2 flex items-center justify-center lg:mt-0 mt-6 p-4">
         <div className="card bg-base-100 w-full max-w-sm  shrink-0 shadow-sm shadow-white">
           <div className="card-body">
             <form onSubmit={handleSubmit}>

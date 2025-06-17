@@ -56,8 +56,8 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className=" flex py-2">
-      <div className="w-1/2 flex flex-col items-center justify-center  pt-4 text-center">
+    <div className=" md:flex md:flex-row min-h-screen p-4">
+      <div className="md:w-1/2 md:flex hidden flex-col items-center justify-center   text-center">
         <h1 className="text-5xl text-green-800 ">
           EduCamp <span className="text-gray-500 textWhite">Web</span>
         </h1>
@@ -66,13 +66,13 @@ const navigate = useNavigate()
         </p>
 
         <Lottie
-          style={{ width: "430px" }}
+          style={{ width: "400px" }}
           animationData={register}
           loop={true}
         ></Lottie>
       </div>
 
-      <div className="w-1/2 flex items-center justify-center">
+      <div className="md:w-1/2 flex items-center justify-center md:mt-0 mt-4">
         <div className="card bg-base-100 w-full max-w-sm  shrink-0 shadow-sm shadow-white">
           <div className="card-body">
             <h1 className="text-4xl text-center text-gray-500 py-2">
