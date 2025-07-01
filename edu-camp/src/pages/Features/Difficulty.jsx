@@ -87,11 +87,7 @@ const Difficulty = () => {
                       <span className="text-black textWhite">Marks :</span>{" "}
                       {assignment.marks === 100 ? assignment.marks : 100}
                     </p>
-                    <p className="flex gap-2 text-gray-500 ">
-                      {" "}
-                      <span className="text-black textWhite">Marks :</span>{" "}
-                      {assignment.marks === 100 ? assignment.marks : 100}
-                    </p>
+                    
                   </div>
                 </div>
               </div>

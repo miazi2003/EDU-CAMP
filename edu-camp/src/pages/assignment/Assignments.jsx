@@ -10,10 +10,9 @@ import toast from "react-hot-toast";
 
 const Assignments = () => {
   const [search, setSearch] = useState("");
+  const [assignments, setAssignments] = useState([]);
   const axiosSecure = UseAxiosSecure();
-  const [assignments, setAssignments] = useState([0]);
-
-  const { user } = useContext(AuthContext); // ✅ Fixed here
+  const { user } = useContext(AuthContext);
   const email = user?.email;
 
   useEffect(() => {
@@ -28,8 +27,8 @@ const Assignments = () => {
   }, [axiosSecure]);
 
   const handleDelete = (id) => {
-    if(!user){
-      return toast.error("Please Login First")
+    if (!user) {
+      return toast.error("Please Login First");
     }
     Swal.fire({
       title: "Are you sure?",
@@ -77,74 +76,91 @@ const Assignments = () => {
   const handleReset = (e) => {
     e?.preventDefault();
     setSearch("");
-    axios.get("https://a-11-server-five.vercel.app/searchAssignment").then((res) => {
-      setAssignments(res.data);
+    axios
+      .get("https://a-11-server-five.vercel.app/searchAssignment")
+      .then((res) => {
+        setAssignments(res.data);
+      });
+  };
+
+  const sortedAssignment = (order) => {
+    const sorted = [...assignments].sort((a, b) => {
+      const titleA = a.title.toLowerCase();
+      const titleB = b.title.toLowerCase();
+      return order === "asc"
+        ? titleA.localeCompare(titleB)
+        : titleB.localeCompare(titleA);
     });
+    setAssignments(sorted);
   };
 
   if (assignments.length === 0) {
     return (
-      <>
-        <div className="flex flex-col items-center gap-4 min-h-screen px-2">
-          <div></div>
-          <div>
-            <h1 className="lg:text-4xl text-xl text-center mt-4 text-gray-700 textWhite">
-              All Assignments
-            </h1>
-            <p className=" md:text-sm text-xs  text-gray-500 mt-2  text-center">
-              Choose Your Assignment And Grow Your Career Now
-            </p>
-          </div>
-          <div className="max-w-max ">
-            <form
-            className="relative"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSearch(search);
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Search"
-              className="lg:w-20 w-42 h-10 pl-4 md:w-auto border-2 rounded-2xl border-green-800"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <button
-              className="absolute right-2 top-3 text-gray-600"
-              type="submit"
-            >
-              <FaSearch />
-            </button>
-            <button
-              title="Show All Data"
-              className="absolute right-8 top-3 text-gray-600"
-              onClick={handleReset}
-            >
-              <RxCross2 />
-            </button>
-          </form>
-          </div>
-          <p className="text-center text-4xl mt-24">No Data Found</p>
-        </div>
-        
-      </>
-    );
-  }
-
-  return (
-    <div className="assignment w-full ">
-      <div className="lg:flex lg:flex-row flex-col justify-around items-center BGround md:px-2 px-6">
-        <div></div>
+      <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 text-center space-y-6">
+        {/* Heading */}
         <div>
-          <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite">
+          <h1 className="text-2xl md:text-4xl font-semibold text-gray-700 textWhite">
             All Assignments
           </h1>
-          <p className="text-lg text-gray-500 mt-2 font text-center">
+          <p className="text-sm md:text-base text-gray-500 mt-2">
             Choose Your Assignment And Grow Your Career Now
           </p>
         </div>
 
-        <div className="flex flex-col items-center gap-2 justify-center">
+        {/* Search Bar */}
+        <form
+          className="relative w-full max-w-sm"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSearch(search);
+          }}
+        >
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full h-11 pl-4 pr-10 border-2 rounded-2xl border-green-800 text-sm"
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+          />
+          <button
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+            type="submit"
+          >
+            <FaSearch />
+          </button>
+          <button
+            title="Show All Data"
+            className="absolute right-10 top-1/2 -translate-y-1/2 text-gray-600"
+            onClick={handleReset}
+            type="button"
+          >
+            <RxCross2 />
+          </button>
+        </form>
+
+        {/* No Data Message */}
+        <p className="text-2xl md:text-3xl text-gray-400 font-medium mt-10">
+          No Data Found
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="assignment w-full">
+      <div>
+        <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite">
+          All Assignments
+        </h1>
+        <p className="lg:text-lg text-sm text-[#cccccc] mt-2 font text-center">
+          Choose Your Assignment And Grow Your Career Now
+        </p>
+      </div>
+
+      {/* Controls */}
+      <div className="w-full flex items-center justify-center pt-2">
+        <div className="w-max flex items-center text-center gap-2 flex-wrap justify-center">
+          {/* Search */}
           <form
             className="relative"
             onSubmit={(e) => {
@@ -155,7 +171,7 @@ const Assignments = () => {
             <input
               type="text"
               placeholder="Search"
-              className="lg:w-40 h-10 pl-4 md:w-auto w-42   border-2 rounded-2xl border-green-800"
+              className="lg:w-40 h-10 pl-4 md:w-auto w-42 border-2 rounded-2xl border-gray-500"
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
@@ -175,23 +191,47 @@ const Assignments = () => {
             </button>
           </form>
 
-          <div className="w-full text-center mt-4">
-            <select
-              className="border border-gray-300 p-1 text-gray-500 assignment textWhite"
-              onChange={(e) => {
-                setSearch(e.target.value);
-                handleSearch(e.target.value);
-              }}
-            >
-              <option value="">Filter by Difficulty</option>
-              <option value="Easy">Easy</option>
-              <option value="Normal">Normal</option>
-              <option value="Hard">Hard</option>
-            </select>
-          </div>
+          {/* Filter */}
+          <select
+            className="h-10 pl-4 md:w-auto w-42 border-2 rounded-2xl text-gray-500 border-gray-500"
+            onChange={(e) => {
+              setSearch(e.target.value);
+              handleSearch(e.target.value);
+            }}
+          >
+            <option value="" className="text-black">
+              Filter by Difficulty
+            </option>
+            <option value="Easy" className="text-black">
+              Easy
+            </option>
+            <option value="Normal" className="text-black">
+              Normal
+            </option>
+            <option value="Hard" className="text-black">
+              Hard
+            </option>
+          </select>
+
+          {/* Sort */}
+          <select
+            className="h-10 px-4 border-2 rounded-2xl border-gray-500 text-gray-500  "
+            onChange={(e) => sortedAssignment(e.target.value)}
+          >
+            <option value="" className="text-black">
+              Sort by Title
+            </option>
+            <option value="asc" className="text-black">
+              A - Z
+            </option>
+            <option value="desc" className="text-black">
+              Z - A
+            </option>
+          </select>
         </div>
       </div>
 
+      {/* Assignment Cards */}
       <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 p-8 min-h-screen">
         {assignments.map((assignment) => (
           <AssignmentCard

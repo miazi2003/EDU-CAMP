@@ -8,21 +8,34 @@ import Logo from "../../../brandLogo/Logo";
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
 
-  const links = user ? (
-    <div className="flex gap-4">
-      <NavLink to={"/"}><button className="flex items-center">Home<IoIosArrowForward /></button></NavLink>
-      <NavLink to={"/assignments"}><button className="flex items-center">Assignments<IoIosArrowForward /></button></NavLink>
-      <NavLink to={"/pendingAssignment"}><button className="flex items-center">Pending<IoIosArrowForward /></button></NavLink>
-      <a href="#ourSuccess"><button className="flex items-center">Success<IoIosArrowForward /></button></a>
-      <a href="#FAQ"><button className="flex items-center">FAQ<IoIosArrowForward /></button></a>
-    </div>
-  ) : (
-    <div className="flex gap-4">
-      <NavLink to={"/"}><button className="flex items-center">Home<IoIosArrowForward /></button></NavLink>
-      <NavLink to={"/assignments"}><button className="flex items-center">Assignments<IoIosArrowForward /></button></NavLink>
-      <a href="#ourSuccess"><button className="flex items-center">Our Success<IoIosArrowForward /></button></a>
-      <a href="#FAQ"><button className="flex items-center">FAQ<IoIosArrowForward /></button></a>
-    </div>
+  const links = (
+    <>
+      <li>
+        <NavLink to="/" className="flex items-center gap-1 ">
+          Home <IoIosArrowForward />
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/assignments" className="flex items-center gap-1  ">
+          Assignments <IoIosArrowForward />
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/pendingAssignment" className="flex items-center gap-1  ">
+          Pending <IoIosArrowForward />
+        </NavLink>
+      </li>
+      <li>
+        <a href="#ourSuccess" className="flex items-center gap-1  ">
+          Success <IoIosArrowForward />
+        </a>
+      </li>
+      <li>
+        <a href="#FAQ" className="flex items-center gap-1  ">
+          FAQ <IoIosArrowForward />
+        </a>
+      </li>
+    </>
   );
 
   const handleSignOut = () => {
@@ -34,67 +47,140 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar sticky z-50 top-0 bg-base-100 lg:px-8 font">
-      <div className="dropdown">
-        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+    <div className="navbar sticky top-0 z-50 bg-base-100 lg:px-8 font">
+
+      {/* MOBILE DROPDOWN */}
+      <div className="dropdown lg:hidden ">
+        <div tabIndex={0} role="button" className="btn btn-ghost ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
           </svg>
         </div>
-        <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow assignment">
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow list-none assignment textWhite"
+        >
           {links}
+          {!user && (
+            <>
+              <li>
+                <Link to="/signIn" className="textWhite">Log In</Link>
+              </li>
+              <li>
+                <Link to="/signUp" className="textWhite">Sign Up</Link>
+              </li>
+              <li>
+                <ToggleTheme />
+              </li>
+            </>
+          )}
+          {user && (
+            <>
+              <li>
+                <NavLink to="/createAssignment">Create Assignment</NavLink>
+              </li>
+              <li>
+                <NavLink to="/attemptedAssignment">
+                  My Attempted Assignment
+                </NavLink>
+              </li>
+              <li>
+                <button
+                  onClick={handleSignOut}
+                  className="btn bg-green-800 hover:bg-white text-white hover:text-green-800 hover:border-green-800 duration-300 w-full"
+                >
+                  Log Out
+                </button>
+              </li>
+              <li>
+                <ToggleTheme />
+              </li>
+            </>
+          )}
         </ul>
       </div>
 
-      <div className="rounded-full flex-1 hidden md:flex">
-        <Logo />
-      </div>
+      {/* DESKTOP NAV */}
+      <div className="flex w-full justify-between items-center">
+        {/* LEFT: Logo */}
+     
+         <Logo />
+    
 
-      <div className="flex-1 lg:flex hidden">{links}</div>
+        {/* CENTER: Links */}
+        <ul className="lg:flex hidden gap-4 list-none">
+          {links}
+        </ul>
 
-      {user ? (
-        <div className="flex flex-1 gap-2 justify-between">
-          <div></div>
-          <div className="flex gap-2">
-            <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar" title={user.displayName}>
-                <div className="w-10 rounded-full">
-                  <img alt={user.displayName} src={user.photoURL} />
+        {/* RIGHT: Auth buttons / Avatar */}
+        <div className="lg:flex hidden items-center gap-4">
+          {user ? (
+            <>
+              {/* Avatar dropdown */}
+              <div className=" dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                  title={user.displayName}
+                >
+                  <div className="w-10 rounded-full">
+                    <img alt={user.displayName} src={user.photoURL} />
+                  </div>
                 </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow list-none flex flex-col gap-2"
+                >
+                  <li>
+                    <NavLink to="/createAssignment">Create Assignment</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/attemptedAssignment">
+                      My Attempted Assignment
+                    </NavLink>
+                  </li>
+                  <li>
+                    <ToggleTheme />
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleSignOut}
+                      className="btn bg-green-800 hover:bg-white text-white hover:text-green-800 hover:border-green-800 duration-300 w-full"
+                    >
+                      Log Out
+                    </button>
+                  </li>
+                </ul>
               </div>
-              <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow flex flex-col gap-4 assignment">
-                <NavLink to={"/createAssignment"}><li>Create Assignment</li></NavLink>
-                <NavLink to={"/attemptedAssignment"}><li>My Attempted Assignment</li></NavLink>
-                <ToggleTheme />
-              </ul>
-            </div>
-            <button
-              onClick={handleSignOut}
-              className="btn bg-green-800 hover:bg-white text-white hover:text-green-800 hover:border-green-800 duration-300"
-            >
-              Log Out
-            </button>
-          </div>
+            </>
+          ) : (
+            <>
+              <Link to="/signIn">
+                <button className="btn border bg-transparent border-green-800 textWhite">
+                  Log In
+                </button>
+              </Link>
+              <Link to="/signUp">
+                <button className="btn bg-green-800 hover:bg-white text-white hover:text-green-800 hover:border-green-800 duration-300">
+                  Sign Up
+                </button>
+              </Link>
+              <ToggleTheme />
+            </>
+          )}
         </div>
-      ) : (
-        <>
-          <div className="flex-1 text-right">
-            <Link to={"/signIn"}>
-              <button className="btn bg-green-800 hover:bg-white text-white hover:text-green-800 hover:border-green-800 duration-300">
-                Log In
-              </button>
-            </Link>
-            <Link to={"/signUp"}>
-              <button className="btn ml-2 bg-green-800 hover:bg-white text-white hover:text-green-800 hover:border-green-800 duration-300">
-                Sign Up
-              </button>
-            </Link>
-          </div>
-        </>
-      )}
-
-      <div className="ml-2">
-        {!user && <ToggleTheme />}
       </div>
     </div>
   );

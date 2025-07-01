@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Logo = () => {
   return (
+   <Link to={"/"}>
     <div className="flex items-center space-x-2">
       <div className="bg-green-500 p-2 rounded-full">
         <svg
@@ -20,7 +22,7 @@ const Logo = () => {
         </svg>
       </div>
       <h1 className="text-2xl font-bold text-gray-800 textWhite">EduCamp</h1>
-    </div>
+    </div></Link>
   );
 };
 
