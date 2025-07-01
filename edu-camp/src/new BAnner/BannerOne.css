@@ -1,0 +1,133 @@
+.banner-one {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+.content {
+  flex: 1 1 400px;
+  max-width: 550px;
+}
+.head {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.para {
+  margin: 1rem 0 1.5rem 0;
+  font-weight: 600;
+  color: #333;
+}
+.get {
+  background-color: #0a4d1f;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.get:hover {
+  background-color: #064611;
+}
+.image-area {
+  position: relative;
+  flex: 1 1 320px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.background-shape {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  width: 320px;
+  height: 380px;
+  background-color: #0a4d1f;
+  clip-path: polygon(
+    20% 0%,
+    80% 0%,
+    100% 25%,
+    90% 80%,
+    60% 100%,
+    20% 100%,
+    0% 75%
+  );
+  z-index: 0;
+  border-radius: 1rem;
+}
+.main-img {
+  position: relative;
+  width: 280px;
+  height: auto;
+  border-radius: 1rem;
+  z-index: 1;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 900px) {
+  .banner-one {
+    flex-direction: column-reverse;
+    max-width: 90vw;
+  }
+  .icons-left {
+    left: auto;
+    right: 30%;
+    top: auto;
+    bottom: 210px;
+    flex-direction: row;
+    gap: 1.5rem;
+    transform: none;
+  }
+  .icons-right {
+    right: auto;
+    left: 30%;
+    top: auto;
+    bottom: 160px;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  .image-area {
+    margin-top: 18px;
+  }
+  .background-shape {
+    width: 280px;
+    height: 320px;
+  }
+  .main-img {
+    width: 260px;
+  }
+  .head {
+    font-size: 2rem;
+  }
+  .get {
+    padding: 0.5rem 1rem;
+  }
+  .content {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .head {
+    font-size: 1.5rem;
+  }
+  .para {
+    font-size: 0.9rem;
+  }
+  .background-shape {
+    display: none;
+  }
+
+  .main-img {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+}

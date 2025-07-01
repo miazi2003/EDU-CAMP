@@ -1,10 +1,13 @@
 import React from 'react';
+import Logo from '../../../brandLogo/Logo';
 
 const Footer = () => {
     return (
-       <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10 assignment shadow-lg shadow-white">
+       <footer className="footer max-w-7xl mx-auto sm:footer-horizontal bg-neutral text-neutral-content p-10 assignment shadow-lg ">
   <aside>
-    <img className='h-24 w-24' src="https://i.ibb.co/Mkgps8nZ/Chat-GPT-Image-Jun-7-2025-01-01-57-AM.png" alt="" />
+    {/* <img className='h-24 w-24' src="https://i.ibb.co/Mkgps8nZ/Chat-GPT-Image-Jun-7-2025-01-01-57-AM.png" alt="" />
+     */}
+     <Logo></Logo>
     <p>
       EduCAmp Education Ltd.
       <br />

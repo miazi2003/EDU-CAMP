@@ -1,93 +1,62 @@
-import React from "react";
-import { Link } from "react-router";
-import { AuthContext } from "../../Context/AuthContext";
+import React from 'react';
+import { Link } from 'react-router';
 
-const PendingAssignmentCard = ({ pending }) => {
-
-  const email = pending?.email ;
-  console.log(email)
+const PendingAssignmentCard = ({ pending, handleMarkAssignment, handleSetDifficulty }) => {
   return (
-    <div className="">
-      <div className="card bg-base-100   shadow-sm flex flex-wrap">
-        <figure className="h-42 w-full">
-          <img src={pending.thumbnailImageURL} alt="Shoes" />
-        </figure>
-        <div className="">
-          <div className="card-body  h-full flex flex-col">
+    <div className="card bg-base-100 min-h-[28rem] shadow-sm flex flex-col">
+      {/* Assignment Thumbnail */}
+      <figure className="h-42 w-full">
+        <img
+          src={pending?.thumbnailImageURL}
+          alt={pending?.title || "Assignment Thumbnail"}
+          className="object-cover w-full h-full"
+        />
+      </figure>
 
-            <div className=" px-2 bg-green-100 w-max rounded">
-              <p className="flex gap-2  text-gray-500">
-                
-                {pending.difficulty}{" "}
-              </p>
-            </div>
-            <h2 className="fontSec flex  gap-2 text-lg font-bold">
-              {pending.title}
-            </h2>
+      {/* Card Body */}
+      <div className="card-body flex flex-col justify-between">
+        <div>
+          {/* Title */}
+          <h2 className="card-title">{pending?.title || "No Title Available"}</h2>
 
-            <p className="flex gap-2 text-gray-500 ">
-              {" "}
-              <span className="text-black textWhite">Marks :</span>{" "}
-              {pending.marks === 100 ? pending.marks : 100}
-            </p>
-          
-            <p>
-              Status : <span className="text-red-400">{pending.status}</span>
-            </p>
-            <p>
-              Submitted By : <span className="text-gray-500">{email}</span>
-            </p>
+          {/* Difficulty Button */}
+          <button
+            onClick={() => handleSetDifficulty(pending)}
+            className="btn btn-outline btn-success btn-sm my-2"
+          >
+            Set A Difficulty
+          </button>
 
-            <Link to={`/giveMarks/${pending._id}`}>
-              <div className="w-full text-center">
-                <button className="btn  bg-green-800 mt-4 text-white hover:bg-white hover:text-green-800 hover:border-green-800 ">
-                  {" "}
-                  Give Marks
-                </button>
-              </div>
-            </Link>
-          </div>
+          {/* Marks */}
+          <p>
+            <span className="font-semibold">Marks :</span>{' '}
+            {pending?.marks ?? 100}
+          </p>
+
+          {/* Status */}
+          <p>
+            <span className="font-semibold">Status :</span>{' '}
+            <span className="text-red-500">pending</span>
+          </p>
+
+          {/* Submitter Info */}
+          <p>
+            <span className="font-semibold">Submitted By :</span><br />
+            <span className="text-sm text-gray-400">{pending?.submittedBy}</span>
+          </p>
         </div>
+
+        {/* Give Marks Button */}
+         <Link to={`/giveMarks/${pending._id}`}><button
+          onClick={() => handleMarkAssignment(pending)}
+          className="btn w-full bg-green-800 h-12 mt-4 text-white"
+        >
+          Give Marks
+        </button>
+         </Link>
       </div>
     </div>
   );
 };
 
 export default PendingAssignmentCard;
-
-// assignmentId
-// :
-// "6848601876428980cf8de58a"
-// difficulty
-// :
-// "hard"
-// doc
-// :
-// "https://docs.google.com/document/d/1rZTzqLoPYEPfiRB9YMiA4-yc_KpkFsms1OsZdSg0_o8/edit?tab=t.0"
-// email
-// :
-// "yeasinmiazi1997@gmail.com"
-// feedback
-// :
-// "not given"
-// marks
-// :
-// 80
-// note
-// :
-// "ml  k"
-// resultMark
-// :
-// "not given"
-// status
-// :
-// "pending"
-// thumbnailImageURL
-// :
-// "https://i.ibb.co/KjDHDz4k/maxresdefault.jpg"
-// title
-// :
-// "Geographic Information System"
-// _id
-// :
-// "684aa2f00c7f413b55108cb4"

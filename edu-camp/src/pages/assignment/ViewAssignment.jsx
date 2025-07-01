@@ -1,8 +1,9 @@
-
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
-import moment from 'moment';
+import moment from "moment";
 import UseAxiosSecure from "../../hooks/useAxiosSecure";
+import { IoMdStar } from "react-icons/io";
+
 const ViewAssignment = () => {
   const axiosSecure = UseAxiosSecure();
   const [viewData, setViewData] = useState([]);
@@ -19,59 +20,61 @@ const ViewAssignment = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [id , axiosSecure]);
-
-
-
+  }, [id, axiosSecure]);
 
   console.log(viewData);
 
-  const {description, difficulty, dueDate, marks, thumbnailImageURL, title, _id } =
-    viewData;
+  const {
+    description,
+    difficulty,
+    dueDate,
+    marks,
+    thumbnailImageURL,
+    title,
+    _id,
+  } = viewData;
 
+  const date = moment(dueDate, "YYYY-MM-DD");
+  const today = moment();
+  const daysLeft = date.diff(today, "days");
 
-
-
-const date = moment(dueDate , "YYYY-MM-DD")
-const today = moment()
-const daysLeft = date.diff(today , "days" )
-
-console.log(daysLeft , "days")
-
-
-
-
-
-
+  console.log(daysLeft, "days");
 
   return (
-    <div className="md:flex flex-col min-h-screen">
-      <div className="lg:w-[50%]   mx-auto">
-        <div className="p-4 bg-white shadow-lg rounded-r-xl assignment">
-          <img className="h-[400px] w-full cover" src={thumbnailImageURL} alt="" />
+    <>
+      <div className=" min-h-screen max-w-7xl mx-auto md:flex flex-col lg:flex-row    justify-between">
+        <div className=" h-[500px] md:w-[40%] w-full  rounded-lg flex flex-col items-center justify-center">
+          <img
+            className="h-[70%] md:w-[70%] md:p-0 p-8  bg-cover rounded-2xl "
+            src={thumbnailImageURL}
+            alt=""
+          />
+          <h1 className="mt-4 text-2xl lg:flex hidden"> {title}</h1>
         </div>
-        <div className="text-center py-8 text-3xl fontSec lg:flex hidden">{title}</div>
-      </div>
 
-      <div className="lg:w-[50%]lg:pl-12  md:px-6 px-6 py-4 ">
-
-            <div className="font flex flex-col gap-4 lg:pr-28">
-                <h1 className="text-4xl">{title }</h1>
-                <p className="text-gray-400 text-sm">5 ratings | 100+ Students Viewed | 15+ submit</p>
-                <p className="text-xl">Assignment Marks : <span className="text-green-800">{marks === 100 ? marks : 100}</span></p>
-                <p className="text-red-800">Deadline : {dueDate} , <span className="text-gray-600">( {daysLeft} days left )</span> </p>
-                <p>Difficulty : <span className="text-gray-800 " >{difficulty} Task</span></p>
-                <p className="w-2/3 text-lg font-bold">Description : <br /> 
-                <span className="text-gray-600 w-1/2 text-sm">{description}</span>
-                </p>
-
-            <Link to={`/submitAssignment/${id}`}>
-            <div className="w-full">
-                    <button className="btn w-full bg-green-800 mt-4 text-white hover:bg-white hover:text-green-800 hover:border-green-800 duration-300 ">Take Assignment</button>
-                </div></Link>
+        <div className="details md:w-[60%] flex flex-col items-center  min-h-screen py-14">
+         <div className="flex flex-col gap-4 items-start lg:pl-0 pl-8">
+           <h1 className="text-black text-xl textWhite"> <span className="Font-bold text-xl text-gray-500 ">Title :</span> {title}</h1>
+          <h1>  <span className="Font-bold text-xl text-gray-500 ">Difficulty :</span> {difficulty}</h1>
+          <h1> <span className="Font-bold text-xl text-gray-500 ">Marks :</span> {marks}</h1>
+          <h1> <span className="Font-bold text-xl text-gray-500 ">Assignment Id  :</span> {_id}</h1>
+          <h1 className="break-words md:w-2/3"> <span className="Font-bold text-xl text-gray-500 ">Description :</span> <br /> {description}</h1>
+          <div className="flex gap-2 items-center border border-gray-500 max-w-max px-4 py-4 rounded-2xl">
+            <p>Ratings : </p>
+            <div className="flex gap-4 text-yellow-600">
+              <IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar /><IoMdStar />
             </div>
+           
+          </div>
+          <Link to={`/submitAssignment/${_id}`}> <div className="w-full">
+              <button className="btn  bg-green-800 text-white textWhite">Take Assignment</button>
+            </div></Link>
+         </div>
+        </div>
+
+        <div></div>
       </div>
-    </div>
+    </>
   );
 };
 

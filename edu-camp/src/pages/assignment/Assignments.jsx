@@ -84,10 +84,10 @@ const Assignments = () => {
         <div className="flex flex-col items-center gap-4 min-h-screen px-2">
           <div></div>
           <div>
-            <h1 className="text-4xl text-center mt-4 text-gray-700 textWhite">
+            <h1 className="lg:text-4xl text-xl text-center mt-4 text-gray-700 textWhite">
               All Assignments
             </h1>
-            <p className="text-lg text-gray-500 mt-2 font text-center">
+            <p className=" md:text-sm text-xs  text-gray-500 mt-2  text-center">
               Choose Your Assignment And Grow Your Career Now
             </p>
           </div>

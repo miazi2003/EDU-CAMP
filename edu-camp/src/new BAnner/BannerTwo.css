@@ -1,0 +1,142 @@
+.banner-two {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  background: linear-gradient(135deg, #1a472a, #3a7b32);
+  border-radius: 1.2rem;
+  color: white;
+  box-shadow: 0 10px 20px rgba(26, 71, 42, 0.5);
+}
+.text-area {
+  flex: 1 1 450px;
+  max-width: 550px;
+  padding: 2rem 2.5rem;
+}
+.head2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+.para2 {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 1.8rem;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  color: rgb(182, 177, 177);
+}
+.explore {
+  background-color: #d4fc79;
+  background-image: linear-gradient(315deg, #d4fc79 0%, #96e6a1 74%);
+  border: none;
+  border-radius: 3rem;
+  padding: 0.8rem 2.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #30471d;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 0 6px 12px rgba(148, 181, 109, 0.5);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.explore:hover {
+  box-shadow: 0 12px 24px rgba(148, 181, 109, 0.8);
+  transform: scale(1.05);
+}
+.image-area {
+  flex: 1;
+  max-width: 380px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.circle-bg {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background-color: #267832;
+  border-radius: 50%;
+  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.2));
+  z-index: 0;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main-img {
+  position: relative;
+  width: 290px;
+  border-radius: 1rem;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+.badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 4rem;
+  background-color: #95cc3f;
+  padding: 0.4rem 1.1rem;
+  border-radius: 2rem;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(14, 49, 5, 0.7);
+  font-size: 1rem;
+  z-index: 2;
+  user-select: none;
+}
+
+@media screen and (max-width: 900px) {
+  .text-area {
+    padding: 2rem 1rem;
+  }
+
+  .image-area {
+    padding: 0.5rem 0;
+  }
+
+  .banner-two {
+    gap: 1rem; /* Reduce gap between items */
+  }
+
+  .circle-bg {
+    top: 0.5rem; /* Reduce vertical push */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .circle-bg {
+    display: none;
+  }
+  .image-area {
+    padding: 0;
+  }
+  .main-img {
+    width: 200px;
+    margin: 0 auto;
+
+  }
+  .badge {
+    display: none;
+  }
+  .head2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+  }
+  .para2 {
+    font-size: 0.9rem;
+  }
+
+  .explore {
+    height: 40px;
+    font-weight: 500;
+    letter-spacing: 0em;
+  }
+}

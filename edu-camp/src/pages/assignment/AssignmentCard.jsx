@@ -12,7 +12,7 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
 
   return (
     <div>
-      <div className="card bg-base-100 md:h-112  shadow-sm shadow-white flex flex-wrap BGround">
+      <div className="card bg-base-100 md:h-112  shadow-lg flex flex-wrap BGround">
         <figure className="h-42 w-full">
           <img src={thumbnailImageURL} alt="Shoes" />
         </figure>

@@ -2,9 +2,9 @@ import React from "react";
 
 const Faq = () => {
   return (
-    <div className="w-[90%] mx-auto mt-4 assignment textWhite">
+    <div className="w-full mx-auto mt-4 assignment textWhite lg:px-0 px-4" id="FAQ">
          
-         <h1 className="text-4xl text-center">FAQ</h1>
+         <h1 className="text-4xl text-center mb-4">FAQ</h1>
       <div className="collapse collapse-arrow bg-base-100 border border-base-300 assignment">
         <input type="radio" name="my-accordion-2"  />
         <div className="collapse-title font-semibold assignment textWhite">

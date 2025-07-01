@@ -57,7 +57,7 @@ body.dark .navbar {
   background-color: white;
 }
 body.dark .hero {
-  background-color: black;
+  background-color: transparent;
 }
 
 .bGround{
@@ -77,12 +77,16 @@ body.dark .textWhite{
 }
 
 
+
+
+
 .card {
   background-color: white;
 }
 body.dark .card {
   background-color: #1f1f1f;
   color: white;
+  border:1px solid white;
 }
 
 
@@ -105,3 +109,7 @@ body.dark .assignmentSubmit {
   background-color: #1f1f1f;
   color: white; 
 }
+
+
+
+
