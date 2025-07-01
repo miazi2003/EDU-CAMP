@@ -6,6 +6,7 @@ import { AuthContext } from "../../Context/AuthContext";
 import UseAxiosSecure from "../../hooks/useAxiosSecure";
 import { FaSearch } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
+import toast from "react-hot-toast";
 
 const Assignments = () => {
   const [search, setSearch] = useState("");
@@ -27,6 +28,9 @@ const Assignments = () => {
   }, [axiosSecure]);
 
   const handleDelete = (id) => {
+    if(!user){
+      return toast.error("Please Login First")
+    }
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
