@@ -12,14 +12,16 @@ const Assignments = () => {
   const [search, setSearch] = useState("");
   const [assignments, setAssignments] = useState([]);
   const axiosSecure = UseAxiosSecure();
-  const { user } = useContext(AuthContext);
+  const { user  } = useContext(AuthContext);
   const email = user?.email;
-
+const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true)
     axiosSecure
       .get("/createAssignment")
       .then((res) => {
         setAssignments(res.data);
+        setLoading(false)
       })
       .catch((err) => {
         console.log(err);
@@ -93,6 +95,10 @@ const Assignments = () => {
     });
     setAssignments(sorted);
   };
+
+  if(loading){
+    return <><div className="min-h-screen"><p>Loading....</p></div></>
+  }
 
   if (assignments.length === 0) {
     return (
