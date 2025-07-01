@@ -12,6 +12,7 @@ import CarouselAll from '../../carousel/CarouselAll';
 
 
 
+
 const Home = () => {
     return (
         <div className='min-h-screen max-w-7xl mx-auto flex flex-col gap-8'>
@@ -22,7 +23,9 @@ const Home = () => {
 
             <Difficulty></Difficulty>
             <Faq></Faq>
+         
             <Footer></Footer>
+
         </div>
     );
 };
