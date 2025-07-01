@@ -132,16 +132,16 @@ const Navbar = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                  className="btn btn-ghost btn-circle avatar "
                   title={user.displayName}
                 >
-                  <div className="w-10 rounded-full">
+                  <div className="w-10 rounded-full ">
                     <img alt={user.displayName} src={user.photoURL} />
                   </div>
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow list-none flex flex-col gap-2"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow list-none flex flex-col gap-2 assignment"
                 >
                   <li>
                     <NavLink to="/createAssignment">Create Assignment</NavLink>
