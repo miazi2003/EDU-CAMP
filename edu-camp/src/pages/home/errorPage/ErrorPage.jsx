@@ -7,7 +7,7 @@ const ErrorPage = () => {
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
       <div className="w-64 h-64">
-        <Lottie animationData={errorLogo} loop={true} />
+        <Lottie animationData={errorLogo} autoPlay={true} loop={true} />
       </div>
       <Link to={'/'}>
         <button className="btn bg-green-800 mt-4 text-white hover:bg-white hover:text-green-800 hover:border-green-800">
