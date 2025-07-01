@@ -58,12 +58,12 @@ console.log(viewData)
   };
   return (
     <div>
-      <div className="flex ">
-        <div className="font px-12 p-4 h-full w-[50%] bg-white  mt-2 ml-8 rounded-2xl ">
+      <div className="flex assignment min-h-screen">
+        <div className="font px-12 p-4 h-full w-[50%] bg-white  mt-2 ml-8 rounded-2xl assignment">
           <h1 className="text-3xl text-center text-gray-500 ">
             Assignment Update Form
           </h1>
-          <form className="flex  p-4 gap-4" onSubmit={handleSubmit}>
+          <form className="flex  p-4 gap-4 assignment" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-14 w-max ">
               <div className="flex gap-2">
                 <label className="text-gray-500">Title :</label>

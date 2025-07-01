@@ -205,8 +205,8 @@ const Assignments = () => {
             <option value="Easy" className="text-black">
               Easy
             </option>
-            <option value="Normal" className="text-black">
-              Normal
+            <option value="Medium" className="text-black">
+              Medium
             </option>
             <option value="Hard" className="text-black">
               Hard
