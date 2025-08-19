@@ -168,7 +168,7 @@ const [loading, setLoading] = useState(true);
 
       {/* Controls */}
       <div className="w-full flex items-center justify-center pt-2">
-        <div className="w-max flex items-center text-center gap-2 flex-wrap justify-center">
+        <div className="w-max flex items-center text-center gap-2 flex-wrap justify-center ">
           {/* Search */}
           <form
             className="relative"
@@ -202,7 +202,7 @@ const [loading, setLoading] = useState(true);
 
           {/* Filter */}
           <select
-            className="h-10 pl-4 md:w-auto w-42 border-2 rounded-2xl text-gray-500 border-gray-500"
+            className="h-10 pl-4 md:w-auto w-42 border-2 rounded-2xl text-gray-400 border-gray-500"
             onChange={(e) => {
               setSearch(e.target.value);
               handleSearch(e.target.value);
