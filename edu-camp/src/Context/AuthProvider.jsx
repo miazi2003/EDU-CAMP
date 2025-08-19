@@ -73,18 +73,7 @@ const googleLogin = ()=>{
     setLoading(false);
     setUser(currentUser);
 
-    if (currentUser?.email) {
-      axios
-        .post(
-          "https://a-11-server-five.vercel.app/jwt",
-          { email: currentUser.email },
-          { withCredentials: true }
-        )
-        .then((res) => {
-          console.log("JWT set:", res.data);
-        })
-        .catch((err) => console.error("JWT error", err));
-    }
+   
   });
 
   return () => unSubscribe(); 

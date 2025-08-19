@@ -24,6 +24,8 @@ const ViewAssignment = () => {
 
   console.log(viewData);
 
+
+
   const {
     description,
     difficulty,
@@ -39,6 +41,8 @@ const ViewAssignment = () => {
   const daysLeft = date.diff(today, "days");
 
   console.log(daysLeft, "days");
+
+ 
 
   return (
     <>

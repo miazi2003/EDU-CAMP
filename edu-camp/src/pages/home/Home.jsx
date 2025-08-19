@@ -8,6 +8,7 @@ import Difficulty from '../Features/Difficulty';
 import BannerOne from '../../new BAnner/BannerOne';
 import BannerTwo from '../../new BAnner/BannerTwo';
 import CarouselAll from '../../carousel/CarouselAll';
+import StarRating from '../star RAting/StarRating';
 
 
 
@@ -23,6 +24,7 @@ const Home = () => {
 
             <Difficulty></Difficulty>
             <Faq></Faq>
+            <StarRating></StarRating>
          
             <Footer></Footer>
 
