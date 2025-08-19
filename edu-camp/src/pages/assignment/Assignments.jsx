@@ -97,7 +97,10 @@ const [loading, setLoading] = useState(true);
   };
 
   if(loading){
-    return <><div className="min-h-screen"><p>Loading....</p></div></>
+    return <><div className="min-w-screen min-h-screen  flex items-center justify-center">
+      <span className="loading loading-ring loading-xl"></span>
+    </div>
+</>
   }
 
   if (assignments.length === 0) {
