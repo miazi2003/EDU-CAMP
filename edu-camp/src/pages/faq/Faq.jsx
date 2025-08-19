@@ -12,7 +12,7 @@ const Faq = () => {
         </div>
         <div className="collapse-content text-sm text-gray-600 textWhite">
          The frontend is what users see and interact with (like buttons, layouts, and forms). It’s built using HTML, CSS, and JavaScript.
-The backend is the behind-the-scenes part — it handles databases, authentication, and server logic using technologies like Node.js, Express, and MongoDB.
+The backend is the behind-the-scenes part — it handles databases, and server logic using technologies like Node.js, Express, and MongoDB.
         </div>
       </div>
       <div className="collapse collapse-arrow bg-base-100 border border-base-300 assignment">
