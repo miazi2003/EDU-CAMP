@@ -11,7 +11,7 @@ const ErrorPage = () => {
       </div>
       <Link to={'/'}>
         <button className="btn bg-green-800 mt-4 text-white hover:bg-white hover:text-green-800 hover:border-green-800">
-          Back To Home
+          Back To Home Now
         </button>
       </Link>
     </div>
